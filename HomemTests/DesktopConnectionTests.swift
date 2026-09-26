@@ -6,7 +6,7 @@ import CoreGraphics
 /// A real local WebRTC peer answers through the HTTP test transport. No production session is used.
 @MainActor final class DesktopConnectionTests: XCTestCase {
     func testViewOnlyBlocksRemoteInputAndReleasesHeldPointer() async throws {
-        let api = APIClient(baseURL: OfficialServer.apiURL, officialSession: OfficialSession(cookies: []), consentRequired: false)
+        let api = APIClient(baseURL: OfficialServer.apiURL, officialSession: OfficialSession(cookies: []))
         let connection = RecoverableDesktopFixture()
         let model = DesktopModel(api: api, botID: "fixture", waitForNetwork: {}) { _, _ in connection }
         model.setViewOnly(true)
@@ -32,7 +32,7 @@ import CoreGraphics
         XCTAssertTrue(model.viewOnly)
     }
     func testRapidTypingPreservesRepeatedKeysAndShortcutOrdering() async throws {
-        let api = APIClient(baseURL: OfficialServer.apiURL, officialSession: OfficialSession(cookies: []), consentRequired: false)
+        let api = APIClient(baseURL: OfficialServer.apiURL, officialSession: OfficialSession(cookies: []))
         let connection = RecoverableDesktopFixture(sendDelay: .milliseconds(2))
         let model = DesktopModel(api: api, botID: "fixture", waitForNetwork: {}) { _, _ in connection }
         await model.connect()
@@ -76,7 +76,7 @@ import CoreGraphics
     }
 
     func testOfficialDesktopRecoversAfterNetworkDropAndStopsWhenDismissed() async throws {
-        let api = APIClient(baseURL: OfficialServer.apiURL, officialSession: OfficialSession(cookies: []), consentRequired: false)
+        let api = APIClient(baseURL: OfficialServer.apiURL, officialSession: OfficialSession(cookies: []))
         var connections = [RecoverableDesktopFixture]()
         let model = DesktopModel(api: api, botID: "fixture", waitForNetwork: {}) { _, _ in
             let connection = RecoverableDesktopFixture()
@@ -97,7 +97,7 @@ import CoreGraphics
         XCTAssertNil(model.runtimeImage)
     }
     func testOfficialDesktopCancelsPendingRecoveryOnDismissal() async throws {
-        let api = APIClient(baseURL: OfficialServer.apiURL, officialSession: OfficialSession(cookies: []), consentRequired: false)
+        let api = APIClient(baseURL: OfficialServer.apiURL, officialSession: OfficialSession(cookies: []))
         var count = 0
         let model = DesktopModel(api: api, botID: "fixture", waitForNetwork: {}) { _, _ in count += 1; throw URLError(.networkConnectionLost) }
         await model.connect()
@@ -108,7 +108,7 @@ import CoreGraphics
         XCTAssertEqual(model.status, "Disconnected")
     }
     func testOfficialDesktopRecoversFromUnwrappedSocketDisconnect() async throws {
-        let api = APIClient(baseURL: OfficialServer.apiURL, officialSession: OfficialSession(cookies: []), consentRequired: false)
+        let api = APIClient(baseURL: OfficialServer.apiURL, officialSession: OfficialSession(cookies: []))
         var attempts = 0
         let model = DesktopModel(api: api, botID: "fixture", waitForNetwork: {}) { _, _ in
             attempts += 1
@@ -125,7 +125,7 @@ import CoreGraphics
         XCTAssertFalse(DesktopRecovery.canRetry(RFBClient.Failure.unsupported))
     }
     func testOfflineDesktopWaitsForConnectivityBeforeReconnecting() async throws {
-        let api = APIClient(baseURL: OfficialServer.apiURL, officialSession: OfficialSession(cookies: []), consentRequired: false)
+        let api = APIClient(baseURL: OfficialServer.apiURL, officialSession: OfficialSession(cookies: []))
         let (updates, continuation) = AsyncStream<Bool>.makeStream()
         defer { continuation.finish() }
         var attempts = 0
@@ -151,7 +151,7 @@ import CoreGraphics
         model.disconnect()
     }
     func testNetworkOutageDoesNotExhaustRecoveryBudget() async throws {
-        let api = APIClient(baseURL: OfficialServer.apiURL, officialSession: OfficialSession(cookies: []), consentRequired: false)
+        let api = APIClient(baseURL: OfficialServer.apiURL, officialSession: OfficialSession(cookies: []))
         var attempts = 0
         let model = DesktopModel(api: api, botID: "fixture", waitForNetwork: {},
                                  recoveryDelay: { _ in .milliseconds(10) }) { _, _ in
@@ -169,7 +169,7 @@ import CoreGraphics
         XCTAssertFalse(DesktopRecovery.canRetry(URLError(.cancelled)))
     }
     func testClosingOfflinePaneCancelsNetworkWait() async throws {
-        let api = APIClient(baseURL: OfficialServer.apiURL, officialSession: OfficialSession(cookies: []), consentRequired: false)
+        let api = APIClient(baseURL: OfficialServer.apiURL, officialSession: OfficialSession(cookies: []))
         let (updates, continuation) = AsyncStream<Bool>.makeStream()
         defer { continuation.finish() }
         var attempts = 0
@@ -197,7 +197,7 @@ import CoreGraphics
         let remote = DesktopPeerFixture()
         let config = URLSessionConfiguration.ephemeral
         config.protocolClasses = [DesktopOfferProtocol.self]
-        let api = APIClient(baseURL: URL(string: "http://127.0.0.1/api")!, session: URLSession(configuration: config), consentRequired: false)
+        let api = APIClient(baseURL: URL(string: "http://127.0.0.1/api")!, session: URLSession(configuration: config))
         var closed = false
         DesktopOfferProtocol.handler = { request in
             if request.httpMethod == "DELETE" { closed = true; return Data() }

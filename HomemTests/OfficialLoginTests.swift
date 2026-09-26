@@ -10,7 +10,7 @@ import XCTest
     }
     func client(cookies: [HTTPCookie] = [], teamID: String = "") -> APIClient {
         let config = URLSessionConfiguration.ephemeral; config.protocolClasses = [StubURLProtocol.self]
-        return APIClient(baseURL: OfficialServer.apiURL, session: URLSession(configuration: config), officialSession: OfficialSession(cookies: cookies, teamID: teamID), consentRequired: false)
+        return APIClient(baseURL: OfficialServer.apiURL, session: URLSession(configuration: config), officialSession: OfficialSession(cookies: cookies, teamID: teamID))
     }
     func testReloadUsesPlatformAccountAndWorkspaceAvatarsWithoutReplacingPermissions() async throws {
         let api = client(cookies: [cookie()], teamID: "team-1")
@@ -69,7 +69,7 @@ import XCTest
         XCTAssertNil(request.value(forHTTPHeaderField: "Authorization"))
         api.baseURL = URL(string: "https://third-party.example/api")!
         XCTAssertThrowsError(try api.request("/bots"))
-        let custom = APIClient(baseURL: api.baseURL, token: "custom-token", consentRequired: false)
+        let custom = APIClient(baseURL: api.baseURL, token: "custom-token")
         XCTAssertNil(try custom.request("/bots").value(forHTTPHeaderField: "Cookie"))
     }
     func testEmailCodeSetsCookieAndLoadsNestedWorkspaceMemberships() async throws {
@@ -182,7 +182,7 @@ private func officialTestBody(_ request: URLRequest) throws -> JSONValue {
         try Keychain.save("unfinished message", account: draftKey)
         defer { try? Keychain.save(nil, account: base.absoluteString); try? Keychain.save(nil, account: draftKey); StubURLProtocol.handler = nil }
         let config = URLSessionConfiguration.ephemeral; config.protocolClasses = [StubURLProtocol.self]
-        let api = APIClient(baseURL: base, token: "legacy-token", session: URLSession(configuration: config), consentRequired: false)
+        let api = APIClient(baseURL: base, token: "legacy-token", session: URLSession(configuration: config))
         StubURLProtocol.handler = { request in
             (200, Data((request.url!.path.hasSuffix("/bots") ? "{\"items\":[]}" : "{\"id\":\"legacy-user\",\"username\":\"Legacy\"}").utf8))
         }
@@ -202,7 +202,7 @@ private func officialTestBody(_ request: URLRequest) throws -> JSONValue {
         let first = account("first"), second = account("second")
         try vault.save(first, secret: "expired"); try vault.save(second, secret: "second-token")
         let config = URLSessionConfiguration.ephemeral; config.protocolClasses = [StubURLProtocol.self]
-        let api = APIClient(baseURL: URL(string: first.server)!, token: "expired", session: URLSession(configuration: config), consentRequired: false)
+        let api = APIClient(baseURL: URL(string: first.server)!, token: "expired", session: URLSession(configuration: config))
         api.credentialAccount = first.credentialKey
         defer { StubURLProtocol.handler = nil }
         StubURLProtocol.handler = { request in

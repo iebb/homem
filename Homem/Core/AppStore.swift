@@ -191,8 +191,4 @@ import Observation
         if let account = savedAccounts.first(where: { $0.id == activeAccountID }) { removeAccount(account) }
         else { replaceClient(nil) }
     }
-    func disconnect() {
-        activeAccountID = nil; vault.activate(nil)
-        replaceClient(nil)
-    }
 }

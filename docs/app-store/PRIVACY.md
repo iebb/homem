@@ -1,8 +1,10 @@
 # Homem privacy policy
 
-Last updated: September 26, 2026.
+Last updated: September 27, 2026.
 
 This policy describes how the Homem client handles your information. The servers and services you choose have their own policies, as explained below.
+
+Kitta, as the developer of Homem, does not collect any user data through the app. Homem has no developer-operated data-collection or analytics backend. The app connects directly to the server you choose.
 
 ## About Homem
 
@@ -12,35 +14,13 @@ Homem, provided by Kitta Ltd, is an independent client for the official Memoh se
 
 When you sign in, Homem sends the information needed to authenticate to the service you select. Official Memoh sign-in uses your email and verification code, or the official website's sign-in flow. A custom server receives the username and password or access token you provide. Connected services can receive your network address and request information as part of normal communication.
 
-Signing in does not grant permission to share content with AI services. After sign-in, Homem reads the server's provider configuration to identify recipients and presents a separate AI data-sharing disclosure. Authentication and configuration requests contain the session credentials needed to communicate with your chosen server, but the disclosure does not send conversation content to AI services.
+Homem does not include or directly connect to a third-party AI service. Users may link AI services inside their own cloud computer. Those services are selected and operated independently of Homem and Kitta.
 
-## AI services: data, recipients, and purpose
-
-With your permission, your selected server receives the messages you enter, conversation history, files and photos you attach or upload, voice recordings, agent instructions, memories, and tool inputs and results. This information may include personal information that you or others include in the content. Terminal input and desktop-control events are sent to your remote workspace; files and tool results in that workspace may also become context for an agent.
-
-Your server may forward the content needed for a request to its configured AI model, memory, search, fetch, speech, transcription, and video service providers. These services use that content to generate responses, remember or retrieve information, search or fetch requested resources, process media, and perform the actions you request. Agent tools and integrations you or your server administrator configure can also receive the information needed for their actions.
-
-Homem does not select a single AI provider on behalf of all users. The in-app disclosure identifies your selected server's address and the enabled service names and endpoint hosts reported by that server. For example, a server can configure OpenAI, Anthropic, Google, another provider, or a private gateway; these examples do not mean that all of them receive your data. A gateway may forward requests to a downstream provider chosen by the server administrator. Ask that administrator about downstream recipients before allowing sharing if the gateway's routing is not clear to you. Servers added through the custom-server option, including a server supplied for app review, are treated as user-operated servers and receive the same disclosure and consent checks.
-
-## Permission and withdrawal
-
-Before connected workspace features are available, Homem asks you to choose **Allow and continue** or **Don't allow**. The disclosure describes the data, purpose, and recipients and links to this policy. Declining disconnects without sending content to AI services; you can still use the local demo. Existing accounts must also give permission after upgrading to the version that introduces this disclosure.
-
-Permission is stored on your device for the selected account, workspace, disclosure version, and recipient configuration. Homem checks the server's provider configuration before new content-sharing operations. If the reported recipients change, permission is required again. If the app cannot read that configuration, sharing remains blocked. The iOS share extension applies the same permission checks before creating an upload folder or uploading files.
-
-To withdraw permission, open **Settings → AI data sharing → Withdraw permission and disconnect**. Withdrawal stops new sharing through that connection in Homem and its share extension. It does not delete information already transmitted, cancel work already running on the server, or change server-side schedules. Use the server's controls to stop those tasks or delete information already stored.
-
-## Protection, retention, and deletion
-
-Third-party services processing personal data for use with Homem must provide the same or equal protection described in this policy: use data only for the disclosed and authorized purposes; protect it against unauthorized access; limit retention to what is needed for those purposes or required by law; and provide a way to request deletion. We require these protections from any processor we engage for Homem. User-operated server administrators are responsible for selecting and configuring their providers to meet these requirements, including any downstream services used by a gateway.
-
-Homem does not control or independently verify a user-operated server's provider contracts, retention periods, or model-training settings. Consent in Homem does not change those settings or grant a provider permission to train on your content. Consult your server operator and the identified providers' policies before sharing; do not allow sharing if their protections do not meet your requirements. Request deletion of server and provider copies using the server's account controls or by contacting its operator. Kitta does not receive a separate copy of your connected content merely because you use Homem.
-
-Use HTTPS to protect traffic to your server; custom HTTP connections are unencrypted and are identified in the app. The client does not forward authentication credentials to arbitrary redirect destinations.
+The selected server processes and stores your conversations, account and workspace information, files, attachments, recordings, and agent activity according to its configuration and policies. Server-configured model providers and integrations may receive information needed to carry out your requests. Consult your server operator and connected service providers for their data handling, retention, deletion, and security practices.
 
 ## Information on your device
 
-Homem stores saved account credentials, sessions, and data-sharing permission receipts in the device Keychain. It does not persist custom-server passwords. Account details, workspace layouts, and display preferences are stored locally, and conversation drafts are saved locally in the Keychain. Permission receipts identify the consent scope and configuration without storing provider API keys or content. The client also uses temporary files and caches to display or share content. Removing a saved account removes its locally saved credentials and drafts; this does not delete the server account or server-side data.
+Homem stores saved account credentials and sessions in the device Keychain. It does not persist custom-server passwords. Account details and display preferences are stored locally, and conversation drafts are saved locally in the Keychain. The client also uses temporary files and caches to display or share content. Removing a saved account removes its locally saved credentials and drafts; this does not delete the server account or server-side data.
 
 ## Files, microphone, and remote workspaces
 
@@ -62,7 +42,7 @@ For questions about Homem or this policy, email [support@ieb.app](mailto:support
 
 ## Sharing from other apps
 
-When you choose Homem in the iOS share sheet, the extension temporarily copies the files you selected. You choose the account, workspace, and agent before saving. The extension reads your existing login from Homem’s Keychain access group, identifies configured recipients, and requires matching data-sharing permission before uploading. If permission has not been given or the recipient configuration changed, the extension presents the disclosure and asks for permission. You then explicitly choose Save to workspace. Temporary copies are removed when you finish or dismiss the extension; the server copies remain until deleted there. No files are uploaded merely by opening the share sheet.
+When you choose Homem in the iOS share sheet, the extension temporarily copies the files you selected. You choose the account, workspace, and agent before saving. The extension reads your existing login from Homem’s Keychain access group and sends the files to that selected server. Temporary copies are removed when you finish or dismiss the extension; the server copies remain until deleted there. No files are uploaded merely by opening the share sheet.
 
 ## Changes
 

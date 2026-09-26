@@ -66,8 +66,6 @@ class Handler(BaseHTTPRequestHandler):
             return self.send_json({"id": "fixture-user", "username": "fixture", "display_name": "Fixture User", "role": "admin"})
         if path == "/api/bots":
             return self.send_json({"items": [{"id": "fixture-bot", "name": "fixture", "display_name": "Wire Test Agent", "is_active": True, "current_user_permissions": ["chat", "manage"]}]})
-        if path == "/api/providers":
-            return self.send_json({"items": [{"id": "fixture-provider", "name": "Local test provider", "config": {"base_url": "http://127.0.0.1:18765"}}]})
         if path.endswith("/sessions"):
             return self.send_json({"items": [{"id": "fixture-session", "title": "Live contract test", "bot_id": "fixture-bot", "type": "chat"}]})
         if path.endswith("/messages"):

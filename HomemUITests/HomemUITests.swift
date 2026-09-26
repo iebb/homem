@@ -1,7 +1,7 @@
 import XCTest
 
 final class HomemUITests: XCTestCase {
-    @MainActor func testAISharingConsentDeclineAcceptAndWithdraw() throws {
+    @MainActor func testCustomServerSignInOpensWorkspace() throws {
         let app = XCUIApplication(); app.launchArguments = ["--ui-onboarding"]; app.launch()
         func connectFixture() {
             let custom = app.buttons["Use another server"]
@@ -19,28 +19,12 @@ final class HomemUITests: XCTestCase {
             app.swipeUp()
             app.buttons["connectServer"].tap()
         }
-        func reveal(_ element: XCUIElement) {
-            for _ in 0..<8 { if element.isHittable { break }; app.swipeUp() }
-        }
         connectFixture()
-        XCTAssertTrue(app.staticTexts["Allow AI data sharing?"].waitForExistence(timeout: 10))
-        XCTAssertFalse(app.buttons["workspacePicker"].exists)
-        let decline = app.buttons["declineDataSharing"]
-        reveal(decline); capture(app, "AI sharing consent and recipients")
-        decline.tap()
-        XCTAssertTrue(app.buttons["officialSignIn"].waitForExistence(timeout: 5))
-        connectFixture()
-        let allow = app.buttons["allowDataSharing"]
-        XCTAssertTrue(app.staticTexts["Allow AI data sharing?"].waitForExistence(timeout: 10)); reveal(allow)
-        XCTAssertTrue(allow.exists)
-        XCTAssertTrue(allow.isEnabled); allow.tap()
         XCTAssertTrue(app.buttons["workspacePicker"].waitForExistence(timeout: 10))
+        XCTAssertFalse(app.buttons["allowDataSharing"].exists)
         selectTab("Settings", in: app)
-        let settings = app.buttons["AI data sharing"]
-        reveal(settings); settings.tap()
-        let withdraw = app.buttons["withdrawDataSharing"]
-        reveal(withdraw); XCTAssertTrue(withdraw.exists); withdraw.tap()
-        XCTAssertTrue(app.buttons["officialSignIn"].waitForExistence(timeout: 5))
+        XCTAssertFalse(app.buttons["AI data sharing"].exists)
+        capture(app, "Connected workspace settings")
     }
     @MainActor func testWorkspaceToolbarAndAddAccountCanBeCancelled() throws {
         let app = XCUIApplication(); app.launchArguments = ["--demo"]; app.launch()

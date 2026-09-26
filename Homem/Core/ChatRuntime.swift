@@ -147,7 +147,6 @@ struct RuntimeState {
         }
     }
     private func write(_ value: JSONValue) async throws {
-        if !["runtime_subscribe", "runtime_unsubscribe", "ping"].contains(value["type"].string) { try await api.requireDataSharing() }
         guard let socket else { throw ClientError.message("The chat connection is not ready.".localized) }
         try await socket.send(.string(String(data: try value.encoded, encoding: .utf8)!))
     }
@@ -176,8 +175,6 @@ struct RuntimeState {
     func send(attachments: [JSONValue] = []) async -> Bool {
         let text = draft.trimmingCharacters(in: .whitespacesAndNewlines)
         guard !text.isEmpty || !attachments.isEmpty else { return false }
-        do { try await api.requireDataSharing() }
-        catch { self.error = error.localizedDescription; return false }
         if !api.isDemo, active || queue.retryKind(for: text) != nil {
             return await enqueue(kind: queue.retryKind(for: text) ?? .followUp, attachments: attachments)
         }

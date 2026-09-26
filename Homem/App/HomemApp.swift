@@ -7,10 +7,7 @@ import SwiftUI
     var body: some Scene {
         WindowGroup {
             Group {
-                if let api = store.api {
-                    if api.isDemo || api.dataSharing.authorized { HomeShell().id(store.connectionID) }
-                    else { DataSharingGate(api: api).id(store.connectionID) }
-                }
+                if store.api != nil { HomeShell().id(store.connectionID) }
                 else { ConnectionView() }
             }
             .environment(store)

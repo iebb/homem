@@ -60,7 +60,7 @@ final class PresentationTests: XCTestCase {
         XCTAssertNotNil(DesktopReadiness.blockingReason(info))
     }
     @MainActor func testPrivateAvatarCredentialsStayOnOriginalOrigin() throws {
-        let api = APIClient(baseURL: URL(string: "https://private.example/api")!, token: "fixture-token", consentRequired: false)
+        let api = APIClient(baseURL: URL(string: "https://private.example/api")!, token: "fixture-token")
         let own = try XCTUnwrap(api.avatarRequest(URL(string: "https://private.example/avatars/team.svg")!))
         XCTAssertEqual(own.value(forHTTPHeaderField: "Authorization"), "Bearer fixture-token")
         for url in ["https://cdn.example/a.png", "http://private.example/a.png", "https://private.example:444/a.png", "data:image/png;base64,eA=="] {
@@ -93,7 +93,7 @@ final class PresentationTests: XCTestCase {
 @MainActor final class DesktopReadinessTests: XCTestCase {
     func testLegacyPrepareAndReadinessPolling() async throws {
         let config = URLSessionConfiguration.ephemeral; config.protocolClasses = [StubURLProtocol.self]
-        let api = APIClient(baseURL: URL(string: "https://desktop.invalid/api")!, token: "fixture", session: URLSession(configuration: config), consentRequired: false)
+        let api = APIClient(baseURL: URL(string: "https://desktop.invalid/api")!, token: "fixture", session: URLSession(configuration: config))
         var infoCalls = 0
         var prepared = false
         StubURLProtocol.handler = { request in
@@ -115,7 +115,7 @@ final class PresentationTests: XCTestCase {
     }
     func testDisabledDesktopDoesNotPrepareOrConnect() async throws {
         let config = URLSessionConfiguration.ephemeral; config.protocolClasses = [StubURLProtocol.self]
-        let api = APIClient(baseURL: URL(string: "https://desktop.invalid/api")!, session: URLSession(configuration: config), consentRequired: false)
+        let api = APIClient(baseURL: URL(string: "https://desktop.invalid/api")!, session: URLSession(configuration: config))
         var count = 0
         StubURLProtocol.handler = { _ in count += 1; return (200, Data(#"{"enabled":false}"#.utf8)) }
         defer { StubURLProtocol.handler = nil }

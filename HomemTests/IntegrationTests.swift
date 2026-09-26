@@ -6,7 +6,7 @@ import XCTest
     func connectedClient() async throws -> APIClient {
         let url = URL(string: "http://127.0.0.1:18765/api")!
         let config = URLSessionConfiguration.ephemeral; config.timeoutIntervalForRequest = 15
-        let api = APIClient(baseURL: url, session: URLSession(configuration: config), consentRequired: false)
+        let api = APIClient(baseURL: url, session: URLSession(configuration: config))
         do { _ = try await api.session.data(from: URL(string: "http://127.0.0.1:18765/health")!) }
         catch {
             if ProcessInfo.processInfo.environment["CI_XCODE_CLOUD"] == "TRUE" { throw error }
@@ -57,7 +57,7 @@ import XCTest
         let data = try await AvatarImages.data(url, request: request)
         XCTAssertNotNil(AvatarImages.decode(data))
         // Mutating API traffic retains its stricter no-redirect behavior.
-        let strictAPI = APIClient(baseURL: api.baseURL, token: api.token, consentRequired: false)
+        let strictAPI = APIClient(baseURL: api.baseURL, token: api.token)
         let (_, response) = try await strictAPI.session.data(for: request)
         XCTAssertEqual((response as? HTTPURLResponse)?.statusCode, 302)
     }

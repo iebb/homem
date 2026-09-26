@@ -34,10 +34,7 @@ struct SettingsView: View {
                 if store.canAdmin { ResourceLink(title: "People", icon: "person.2", spec: .global("/users", title: "People")) }
             }
             Section("Preferences".localized) {
-                if !store.isDemo {
-                    NavigationLink("AI data sharing".localized, systemImage: "hand.raised") { DataSharingSettings() }
-                }
-                Link("Privacy policy".localized, destination: DataSharingDisclosure.policyURL)
+                Link("Privacy policy".localized, destination: URL(string: "https://docs.kitta.co/homem/")!)
                 Picker("Appearance".localized, selection: $appearance) { Text("System".localized).tag("system"); Text("Light".localized).tag("light"); Text("Dark".localized).tag("dark") }.accessibilityIdentifier("appearancePicker")
                 Picker("Color scheme".localized, selection: $colorScheme) { ForEach(Theme.schemes, id: \.self) { Text(($0 == "memoh" ? "Memoh".localized : $0.capitalized).localized).tag($0) } }.accessibilityIdentifier("accentPicker")
                 Button { if let url = URL(string: UIApplication.openSettingsURLString) { openURL(url) } } label: {

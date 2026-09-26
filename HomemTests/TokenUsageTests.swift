@@ -10,7 +10,7 @@ final class TokenUsageTests: XCTestCase {
         XCTAssertEqual(oneDay.query, ["from": "2024-03-01", "to": "2024-03-02"])
     }
     @MainActor func testUsageRequestEncodesMandatoryRange() throws {
-        let api = APIClient(baseURL: URL(string: "https://memoh.example/api")!, token: "test", consentRequired: false)
+        let api = APIClient(baseURL: URL(string: "https://memoh.example/api")!, token: "test")
         let query = TokenUsagePeriod(days: 30, now: try XCTUnwrap("2026-09-18T23:59:00Z".wireDate)).query
         let request = try api.request("/bots/example/token-usage", query: query)
         let parts = try XCTUnwrap(URLComponents(url: request.url!, resolvingAgainstBaseURL: false))

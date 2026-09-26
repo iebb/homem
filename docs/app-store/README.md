@@ -1,6 +1,8 @@
 # App Store preparation
 
-Current review corrections and resubmission status: [September 26, 2026](REVIEW-2026-09-26.md).
+Current review corrections and resubmission status: [September 27, 2026](REVIEW-2026-09-27.md).
+
+The [September 26 consent implementation](REVIEW-2026-09-26.md) was removed at the owner’s request; its notes are historical.
 
 The preparation notes below describe earlier work from September 18, 2026 and are retained as history.
 

@@ -59,8 +59,6 @@ targets:
       - path: Homem/Core/SharedFiles.swift
       - path: Homem/Core/JSONValue.swift
       - path: Homem/Core/Localization.swift
-      - path: Homem/Core/DataSharingConsent.swift
-      - path: Homem/Features/DataSharingDetails.swift
       - path: Homem/Resources/Localizable.xcstrings
     settings:
       base:

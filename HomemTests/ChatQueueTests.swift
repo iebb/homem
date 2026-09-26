@@ -6,7 +6,7 @@ import XCTest
     private func model() -> ChatModel {
         let config = URLSessionConfiguration.ephemeral
         config.protocolClasses = [StubURLProtocol.self]
-        let api = APIClient(baseURL: URL(string: "https://queue.invalid/api")!, session: URLSession(configuration: config), consentRequired: false)
+        let api = APIClient(baseURL: URL(string: "https://queue.invalid/api")!, session: URLSession(configuration: config))
         return ChatModel(api: api, botID: "bot-a", sessionID: "session-a")
     }
     private func body(_ request: URLRequest) throws -> JSONValue {

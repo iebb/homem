@@ -37,7 +37,7 @@ import WebRTC
         XCTAssertEqual(CVPixelBufferGetHeight(rotated), 4)
     }
     func testLivePlaybackPauseAndSkipCompletion() throws {
-        let model = DesktopModel(api: APIClient(baseURL: OfficialServer.apiURL, officialSession: OfficialSession(cookies: []), consentRequired: false), botID: "fixture")
+        let model = DesktopModel(api: APIClient(baseURL: OfficialServer.apiURL, officialSession: OfficialSession(cookies: [])), botID: "fixture")
         let pip = model.pictureInPicture
         print("System Picture in Picture support on this test device: \(pip.isSupported)")
         let controller = AVPictureInPictureController(contentSource: .init(sampleBufferDisplayLayer: pip.surface.displayLayer, playbackDelegate: pip))

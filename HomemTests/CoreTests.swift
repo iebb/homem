@@ -139,7 +139,7 @@ final class CoreTests: XCTestCase {
         }
     }
     @MainActor func testURLBasePathAndEscaping() throws {
-        let api = APIClient(baseURL: try APIClient.normalizedURL("https://example.com/memoh/api/"), token: "secret", consentRequired: false)
+        let api = APIClient(baseURL: try APIClient.normalizedURL("https://example.com/memoh/api/"), token: "secret")
         let request = try api.request("/bots/" + "a/b?#".pathComponent + "/messages", query: ["session_id": "a&b +日本"])
         XCTAssertEqual(request.url?.path, "/memoh/api/bots/a/b?#/messages")
         XCTAssertTrue(request.url!.absoluteString.contains("a%2Fb%3F%23"))
@@ -148,7 +148,7 @@ final class CoreTests: XCTestCase {
     }
     @MainActor func testRejectsCredentialURLsAndForeignEndpoints() throws {
         for url in ["file:///etc/passwd", "https://u:p@example.com", "https://example.com?token=x", "example.com", "https://example.com/#x"] { XCTAssertThrowsError(try APIClient.normalizedURL(url)) }
-        let api = APIClient(baseURL: URL(string: "https://example.com")!, consentRequired: false)
+        let api = APIClient(baseURL: URL(string: "https://example.com")!)
         XCTAssertThrowsError(try api.request("https://other.com"))
         XCTAssertThrowsError(try api.request("/../other"))
     }
@@ -238,7 +238,7 @@ final class StubURLProtocol: URLProtocol, @unchecked Sendable {
 @MainActor final class NetworkingTests: XCTestCase {
     func client(token: String = "") -> APIClient {
         let config = URLSessionConfiguration.ephemeral; config.protocolClasses = [StubURLProtocol.self]
-        return APIClient(baseURL: URL(string: "https://test.invalid/api")!, token: token, session: URLSession(configuration: config), consentRequired: false)
+        return APIClient(baseURL: URL(string: "https://test.invalid/api")!, token: token, session: URLSession(configuration: config))
     }
     func testHTTPErrorPreservesServerMessage() async {
         StubURLProtocol.handler = { _ in (403, Data(#"{"message":"Manage permission required"}"#.utf8)) }

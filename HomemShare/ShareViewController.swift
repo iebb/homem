@@ -55,7 +55,7 @@ final class ShareViewController: UIViewController {
         accounts = saved.accounts
         accountID = saved.activeID.flatMap { id in saved.accounts.contains { $0.id == id } ? id : nil } ?? saved.accounts.first?.id ?? ""
     }
-    var canSave: Bool { !loading && !saving && !complete && !files.isEmpty && !botID.isEmpty && client?.dataSharing.authorized == true }
+    var canSave: Bool { !loading && !saving && !complete && !files.isEmpty && !botID.isEmpty && client != nil }
     var selectionLocked: Bool { saving || !uploaded.isEmpty || complete }
     func prepare() async {
         guard files.isEmpty, !cancelled else { return }
@@ -92,7 +92,6 @@ final class ShareViewController: UIViewController {
             let response = try await next.call("/bots")
             guard selectionVersion == version, !cancelled else { return }
             bots = response.items.map(Record.init)
-            try await next.refreshDataSharing()
         } catch { if selectionVersion == version, !cancelled { self.error = error.localizedDescription } }
     }
     func selectTeam() async {
@@ -104,7 +103,6 @@ final class ShareViewController: UIViewController {
             let response = try await client.call("/bots")
             guard selectionVersion == version, !cancelled else { return }
             bots = response.items.map(Record.init)
-            try await client.refreshDataSharing()
         } catch { if selectionVersion == version, !cancelled { self.error = error.localizedDescription } }
     }
     func resetDestination() { if uploaded.isEmpty { destination = ""; folderCreated = false } }
@@ -217,19 +215,6 @@ private struct ShareView: View {
                         }
                     }
                     if !model.files.isEmpty && !model.accounts.isEmpty {
-                        if let consent = model.client?.dataSharing, let disclosure = consent.disclosure, !consent.authorized {
-                            Section {
-                                Text("Allow AI data sharing?".localized).font(.headline)
-                                Text("Files saved to this workspace can be read by its agents and sent to the services below.".localized)
-                            }
-                            DataSharingDetails(disclosure: disclosure)
-                            Section {
-                                Button("Allow and continue".localized) {
-                                    do { try consent.accept() } catch { model.error = error.localizedDescription }
-                                }.disabled(consent.loading || consent.error != nil)
-                                Button("Don't allow".localized, role: .cancel, action: close)
-                            }
-                        }
                         Section {
                             Button { model.save() } label: {
                                 HStack {

@@ -9,11 +9,6 @@ import Foundation
     var teamID: String
     private var token: String
     private var official: OfficialSession?
-    let dataSharing = DataSharingConsent()
-    var consentScope: String { account.credentialKey + (account.official ? "|" + teamID : "") }
-    func refreshDataSharing() async throws {
-        try await dataSharing.refresh(scope: consentScope, server: baseURL) { try await self.call($0) }
-    }
     init(account: SavedAccount, session: URLSession? = nil) throws {
         guard let base = URL(string: account.server), ["http", "https"].contains(base.scheme), base.host != nil,
               base.user == nil, base.password == nil, base.query == nil, base.fragment == nil else { throw ClientError.invalidURL }
@@ -54,10 +49,6 @@ import Foundation
         try await perform(request(path, method: method, body: body, platform: platform))
     }
     func perform(_ request: URLRequest, file: URL? = nil, retry: Bool = true) async throws -> JSONValue {
-        if !["GET", "HEAD"].contains(request.httpMethod ?? "GET"), request.url != baseURL.appendingPathComponent("/auth/refresh") {
-            try await refreshDataSharing()
-            try dataSharing.requireAuthorization()
-        }
         // Recheck removal before requests, so an open share sheet cannot reuse a removed login.
         guard Keychain.read(account.credentialKey) != nil else { throw ClientError.message("Open Homem and sign in again, then share your files.".localized) }
         let (data, response): (Data, URLResponse)

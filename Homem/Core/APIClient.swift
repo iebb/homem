@@ -17,12 +17,8 @@ import Observation
     private let desktopSession: URLSession
     let demo = DemoServer()
     private var refreshTask: Task<String, Error>?
-    let dataSharing = DataSharingConsent()
-    private let consentRequired: Bool
-    private var consentRefresh: Task<Void, Error>?
 
-    init(baseURL: URL, token: String = "", isDemo: Bool = false, session: URLSession? = nil, officialSession: OfficialSession? = nil, consentRequired: Bool = true) {
-        self.consentRequired = consentRequired
+    init(baseURL: URL, token: String = "", isDemo: Bool = false, session: URLSession? = nil, officialSession: OfficialSession? = nil) {
         self.baseURL = baseURL; self.token = token; self.isDemo = isDemo
         self.officialSession = officialSession
         let config = URLSessionConfiguration.ephemeral
@@ -41,7 +37,6 @@ import Observation
     func invalidate() {
         signedOut = true
         refreshTask?.cancel()
-        consentRefresh?.cancel()
         session.invalidateAndCancel()
         desktopSession.invalidateAndCancel()
     }
@@ -100,9 +95,6 @@ import Observation
     }
     func perform(_ request: URLRequest, retry: Bool = true) async throws -> Data {
         guard !signedOut else { throw ClientError.message("This session has signed out.".localized) }
-        if !["GET", "HEAD"].contains(request.httpMethod ?? "GET"), !isAuthenticationRequest(request) {
-            try await requireDataSharing()
-        }
         let (data, response) = try await session.data(for: request)
         guard !signedOut else { throw ClientError.message("This session has signed out.".localized) }
         guard let http = response as? HTTPURLResponse else { throw ClientError.invalidResponse }
@@ -157,7 +149,6 @@ import Observation
         return r
     }
     func socket(_ path: String, query: [String: String] = [:]) async throws -> URLSessionWebSocketTask {
-        try await requireDataSharing()
         let r = try await socketRequest(path, query: query)
         let socket = session.webSocketTask(with: r); socket.resume(); return socket
     }
@@ -176,7 +167,6 @@ import Observation
         return request
     }
     func runtimeDisplaySocket(sessionID: String, token: String) async throws -> URLSessionWebSocketTask {
-        try await requireDataSharing()
         let request = try await runtimeDisplayRequest(sessionID: sessionID, token: token)
         // A live desktop must not inherit the API session's two-minute resource limit.
         let socket = desktopSession.webSocketTask(with: request)
@@ -186,7 +176,6 @@ import Observation
     }
     func streamOperation(_ path: String, method: String, query: [String: String] = [:], body: JSONValue?, onEvent: (JSONValue) -> Void) async throws -> JSONValue {
         if isDemo { throw ClientError.message("This operation requires a connected Memoh server.".localized) }
-        try await requireDataSharing()
         var request = try request(path, method: method, query: query, body: body)
         request.setValue("text/event-stream", forHTTPHeaderField: "Accept")
         request.timeoutInterval = 1200
@@ -222,31 +211,6 @@ import Observation
         var r = try request(path, method: "POST"); r.httpBody = data
         r.setValue("multipart/form-data; boundary=\(boundary)", forHTTPHeaderField: "Content-Type")
         return try JSONDecoder().decode(JSONValue.self, from: await perform(r))
-    }
-    func refreshDataSharing() async throws {
-        if let consentRefresh { return try await consentRefresh.value }
-        let task = Task { try await dataSharing.refresh(scope: draftScope, server: baseURL) { try await self.call($0) } }
-        consentRefresh = task
-        defer { consentRefresh = nil }
-        try await task.value
-    }
-    func requireDataSharing() async throws {
-        guard consentRequired, !isDemo else { return }
-        guard !signedOut else { throw ClientError.message("This session has signed out.".localized) }
-        try await refreshDataSharing()
-        try Task.checkCancellation()
-        guard !signedOut else { throw ClientError.message("This session has signed out.".localized) }
-        try dataSharing.requireAuthorization()
-    }
-    private func isAuthenticationRequest(_ request: URLRequest) -> Bool {
-        guard let url = request.url else { return false }
-        // Authentication precedes consent and never sends conversation content.
-        let bases = isOfficial ? [OfficialServer.apiURL, OfficialServer.platformURL] : [baseURL]
-        return bases.contains { base in
-            ["/auth/login", "/auth/refresh", "/auth/email-code/send", "/auth/email-code/verify", "/auth/verify-mfa"].contains { path in
-                url == base.appendingPathComponent(path)
-            }
-        }
     }
 }
 

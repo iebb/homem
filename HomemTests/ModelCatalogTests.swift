@@ -5,7 +5,7 @@ import XCTest
     override func tearDown() { StubURLProtocol.handler = nil; super.tearDown() }
     func client() -> APIClient {
         let config = URLSessionConfiguration.ephemeral; config.protocolClasses = [StubURLProtocol.self]
-        return APIClient(baseURL: URL(string: "https://models.invalid/api")!, session: URLSession(configuration: config), consentRequired: false)
+        return APIClient(baseURL: URL(string: "https://models.invalid/api")!, session: URLSession(configuration: config))
     }
     func testMarketplaceSearchPagesAndRetriesWithoutLosingLoadedApps() async throws {
         let catalog = MarketplaceCatalog(api: client())
