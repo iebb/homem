@@ -27,9 +27,11 @@ The server entitlement is retained because the desktop feature needs it. Its sou
 
 The existing App Review Information was preserved and extended with the entitlement explanation, Apple's documentation link, the sandbox diagnostic, and precise demo steps. The saved notes were read back from Apple's API and verified. Existing demo credentials were retained.
 
-A response is saved as an **unsent draft** in App Store Connect. Sending it to Apple's review team requires explicit authorization under the session's messaging rule. After that authorization, send the draft and resubmit the existing native build, retaining manual release. Current version state remains **REJECTED** and submission state **UNRESOLVED_ISSUES** until the response/resubmission steps complete.
+A response was posted to Apple's review team at **20:38 Singapore time on 3 October 2026**. After the user's explicit approval, the existing native build **1.0.0 (101)** was resubmitted at **20:40:50 Singapore time** (`2026-10-03T12:40:50.328Z`). The submission and version now report **WAITING_FOR_REVIEW**; build processing remains **VALID**, and release remains **MANUAL**. The review item reports **READY_FOR_REVIEW**. The website shows both the posted response and the waiting-for-review submission; Apple's API confirms the submission, version, build, and release states.
 
-## Prepared response
+[Resubmission evidence](review-evidence/2026-10-03-macos-udp-resubmitted.png) shows build 101, the posted explanation, and the updated review status. This is a resubmission for review, not approval or release.
+
+## Posted response
 
 Hello App Review,
 

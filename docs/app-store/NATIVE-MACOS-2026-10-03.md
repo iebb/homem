@@ -7,7 +7,7 @@
 - Release remains **manual** after approval.
 - This replaces the previously queued Catalyst build 67. Its previous review submission was withdrawn before selecting the native build.
 
-**Later review update, 3 October:** Apple's automated entitlement analysis rejected this submission for the incoming-network entitlement. The native WebRTC desktop viewer needs the entitlement for UDP reception. App Review Information now contains the explanation and demo steps; an unsent response draft is prepared. See [the entitlement investigation](MACOS-ENTITLEMENT-REVIEW-2026-10-03.md) for evidence and the current resubmission state. The initial waiting-for-review state above is historical.
+**Later review update, 3 October:** Apple's automated entitlement analysis rejected this submission for the incoming-network entitlement. The native WebRTC desktop viewer needs the entitlement for UDP reception. App Review Information now contains the explanation and demo steps, and the response was posted to Apple at 20:38 Singapore time. Following the user's approval, native build **101** was resubmitted at **20:40:50 Singapore time**. The submission and version are again **WAITING_FOR_REVIEW**, with manual release retained. See [the entitlement investigation](MACOS-ENTITLEMENT-REVIEW-2026-10-03.md) and [resubmission evidence](review-evidence/2026-10-03-macos-udp-resubmitted.png).
 
 ## Native app and validation
 
