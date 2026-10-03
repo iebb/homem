@@ -7,6 +7,8 @@
 - Release remains **manual** after approval.
 - This replaces the previously queued Catalyst build 67. Its previous review submission was withdrawn before selecting the native build.
 
+**Later review update, 3 October:** Apple's automated entitlement analysis rejected this submission for the incoming-network entitlement. The native WebRTC desktop viewer needs the entitlement for UDP reception. App Review Information now contains the explanation and demo steps; an unsent response draft is prepared. See [the entitlement investigation](MACOS-ENTITLEMENT-REVIEW-2026-10-03.md) for evidence and the current resubmission state. The initial waiting-for-review state above is historical.
+
 ## Native app and validation
 
 `HomemMac` is a standalone SwiftUI/AppKit target. Both Intel and Apple silicon executables report `MACOS`, with minimum macOS 14. The archive is `build-release/HomemNativeMac-1.0.0-101.xcarchive`. Its app is sandboxed, uses native Mac icons and a Mac Info.plist, and excludes the iOS share extension. Xcode's direct App Store upload succeeded. Apple accepted the native build as valid. The prebuilt WebRTC SDK emitted a nonblocking missing dSYM warning; Homem's own dSYM is present.
