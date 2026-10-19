@@ -1,6 +1,13 @@
 import Foundation
 import Observation
 
+extension JSONValue {
+    var chatTurnID: String {
+        let key = ["turn_id", "id", "timestamp"].first { !self[$0].isNull && !self[$0].scalar.isEmpty }
+        return (key.map { self[$0].scalar } ?? "live") + "|" + self["role"].string
+    }
+}
+
 struct RuntimeState {
     var epoch = ""
     var sequence: Double = 0
@@ -80,6 +87,7 @@ struct RuntimeState {
     private var pingTask: Task<Void, Never>?
     private var reliable: [String: JSONValue] = [:]
     private var isStopped = false
+    private var historyVersion = 0
     var active: Bool { runtime.active || !pending.isEmpty }
     var prefix: String { "/bots/\(botID.pathComponent)" }
     var sessionPath: String { prefix + "/sessions/\(sessionID.pathComponent)" }
@@ -153,22 +161,42 @@ struct RuntimeState {
         try await write(value)
     }
     func loadHistory(older: Bool = false) async {
-        loading = true; defer { loading = false }
+        guard !older || !loading else { return }
+        historyVersion += 1
+        let version = historyVersion
+        let wasEmpty = history.isEmpty
+        loading = true
+        defer { if version == historyVersion { loading = false } }
         do {
             var query = ["session_id": sessionID, "limit": "50"]
-            if older, let first = history.first { query["before_message_id"] = first.text("id", "turn_id") }
+            if older, let first = history.first { query["before_message_id"] = first["id"].isNull ? first["turn_id"].scalar : first["id"].scalar }
             let items = try await api.call(prefix + "/messages", query: query).items
+            guard version == historyVersion, !Task.isCancelled else { return }
             // Upstream returns chronological UI turns. Position is authoritative when supplied.
             let sorted = items.sorted {
                 if !$0["turn_position"].isNull && !$1["turn_position"].isNull { return $0["turn_position"].number < $1["turn_position"].number }
                 return $0["timestamp"].string < $1["timestamp"].string
             }
             if older {
-                let known = Set(history.map { $0["turn_id"].string + $0["role"].string })
-                history = sorted.filter { !known.contains($0["turn_id"].string + $0["role"].string) } + history
-            } else { history = sorted }
-            hasMore = items.count == 50; error = nil
-        } catch { self.error = error.localizedDescription }
+                let known = Set(history.map(\.chatTurnID))
+                history = sorted.filter { !known.contains($0.chatTurnID) } + history
+            } else if let first = sorted.first,
+                      let boundary = history.firstIndex(where: { $0.chatTurnID == first.chatTurnID }) {
+                // Refresh the recent window without discarding pages the reader
+                // already loaded. Replace its entire tail so edits/retries can
+                // still remove turns that no longer exist on the server.
+                history = Array(history[..<boundary]) + sorted
+                if boundary == 0 { hasMore = items.count == 50 }
+            } else {
+                history = sorted
+                hasMore = items.count == 50
+            }
+            if older || wasEmpty { hasMore = items.count == 50 }
+            error = nil
+        } catch { if version == historyVersion, !Task.isCancelled { self.error = error.localizedDescription } }
+    }
+    var latestTurnID: String? {
+        visibleTurns.last?.chatTurnID
     }
     func send(attachments: [JSONValue] = []) async -> Bool {
         let text = draft.trimmingCharacters(in: .whitespacesAndNewlines)

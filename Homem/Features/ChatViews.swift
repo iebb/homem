@@ -543,9 +543,9 @@ struct ChatContent: View {
             ScrollView {
                 LazyVStack(alignment: .leading, spacing: 26) {
                     HStack { AgentAvatar(name: destination.botName, avatarURL: store.bots.first { $0.id == destination.botID }?.value.avatarURL ?? "", size: 34); VStack(alignment: .leading, spacing: 3) { Text(destination.botName).font(.subheadline.weight(.semibold)); Text(model.connection.localized).font(.caption).foregroundStyle(.secondary) }; Spacer() }.padding(.bottom, 8)
-                    if model.hasMore { Button("Load earlier messages".localized) { Task { await model.loadHistory(older: true) } }.frame(maxWidth: .infinity) }
+                    if model.hasMore { Button("Load earlier messages".localized) { Task { await model.loadHistory(older: true) } }.disabled(model.loading).frame(maxWidth: .infinity) }
                     if model.history.isEmpty && !model.loading && !model.active { EmptyState(title: "What’s on your mind?", symbol: "sparkle", detail: "Ask a question, share a file, or start with an idea.").padding(.top, 30) }
-                    ForEach(Array(model.visibleTurns.enumerated()), id: \.offset) { _, turn in
+                    ForEach(model.visibleTurns, id: \.chatTurnID) { turn in
                         TurnView(turn: turn, agentName: destination.botName, model: model)
                             .contextMenu {
                                 Button("Copy".localized, systemImage: "doc.on.doc") { UIPasteboard.general.string = turn["role"] == "user" ? turn["text"].string : turn["messages"].array.map { $0["content"].string }.joined(separator: "\n") }
@@ -564,7 +564,7 @@ struct ChatContent: View {
             }
             .defaultScrollAnchor(.bottom)
             .dismissKeyboardOnScroll()
-            .onChange(of: model.visibleTurns.count) { _, _ in withAnimation { proxy.scrollTo("bottom", anchor: .bottom) } }
+            .onChange(of: model.latestTurnID) { _, _ in withAnimation { proxy.scrollTo("bottom", anchor: .bottom) } }
             .onChange(of: composerFocused) { _, focused in if focused { proxy.scrollTo("bottom", anchor: .bottom) } }
             composer
             }

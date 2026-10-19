@@ -1,0 +1,903 @@
+{
+  "version": "1.1",
+  "artworkDate": "2026-10-19",
+  "nativeInterfaceAltered": false,
+  "assets": [
+    {
+      "path": "docs/app-store/screenshots/1.1/iphone/en-US/01-conversation.jpg",
+      "platform": "iphone",
+      "locale": "en-US",
+      "dimensions": [
+        1320,
+        2868
+      ],
+      "title": "Your cloud computer.\nWithin reach.",
+      "subtitle": "Chat, files and tools. One Memoh workspace.",
+      "source": "docs/app-store/screenshots/1.1/raw/iphone/01-conversation.png",
+      "sourceSHA256": "0a0ceecd738751818a1f366dc78dc8b0e6a32cb23ea692f09f0d7fcfcf50f7e6",
+      "sha256": "e9f76eabba87c6ee0cfff86a2b0f49e35b7dc86563ce4e345e442eafd9465a63"
+    },
+    {
+      "path": "docs/app-store/screenshots/1.1/iphone/en-US/02-files.jpg",
+      "platform": "iphone",
+      "locale": "en-US",
+      "dimensions": [
+        1320,
+        2868
+      ],
+      "title": "Keep work together.",
+      "subtitle": "Your conversations and files, within reach.",
+      "source": "docs/app-store/screenshots/1.1/raw/iphone/03-files.png",
+      "sourceSHA256": "1fc62d04076dd378cc4f7317c299da3f4e2d0c8a2b93b4e9a23103b100511e42",
+      "sha256": "59f4a3dacf03d80a47e8764766c077efde9fd97161b0fd89a8a62bf1187b266e"
+    },
+    {
+      "path": "docs/app-store/screenshots/1.1/iphone/en-US/03-editor.jpg",
+      "platform": "iphone",
+      "locale": "en-US",
+      "dimensions": [
+        1320,
+        2868
+      ],
+      "title": "From idea to file.",
+      "subtitle": "Read and edit right in your workspace.",
+      "source": "docs/app-store/screenshots/1.1/raw/iphone/04-editor.png",
+      "sourceSHA256": "e7c0abc0890bbaa8387dfff9c04912be66e9cb517b35ff73c49577c565c80b1e",
+      "sha256": "c019824322d474caac034e2ab1235d3a0dee1d37c07e6266adb1f4f6e25779de"
+    },
+    {
+      "path": "docs/app-store/screenshots/1.1/iphone/en-US/04-agents.jpg",
+      "platform": "iphone",
+      "locale": "en-US",
+      "dimensions": [
+        1320,
+        2868
+      ],
+      "title": "A team of your own.",
+      "subtitle": "Switch agents. Explore their workspaces.",
+      "source": "docs/app-store/screenshots/1.1/raw/iphone/02-agents.png",
+      "sourceSHA256": "5ab2099b2c84f3c3be92020c28547185c4733dadb8ff1b76a911a99f9342a736",
+      "sha256": "d4ff55c46b6249f1dfe37642081b0908ff3bb84bdd747cdbcc17d298695958a9"
+    },
+    {
+      "path": "docs/app-store/screenshots/1.1/iphone/zh-Hans/01-conversation.jpg",
+      "platform": "iphone",
+      "locale": "zh-Hans",
+      "dimensions": [
+        1320,
+        2868
+      ],
+      "title": "你的云电脑。\n触手可及。",
+      "subtitle": "对话、文件与工具，汇聚在 Memoh 工作空间。",
+      "source": "docs/app-store/screenshots/1.1/raw/iphone/01-conversation.png",
+      "sourceSHA256": "0a0ceecd738751818a1f366dc78dc8b0e6a32cb23ea692f09f0d7fcfcf50f7e6",
+      "sha256": "25a398ef40b38c3d8ed16e2782955c4e65b989d737bf7bc7ad4ebe149353f030"
+    },
+    {
+      "path": "docs/app-store/screenshots/1.1/iphone/zh-Hans/02-files.jpg",
+      "platform": "iphone",
+      "locale": "zh-Hans",
+      "dimensions": [
+        1320,
+        2868
+      ],
+      "title": "让工作井然有序。",
+      "subtitle": "随时访问对话与工作空间文件。",
+      "source": "docs/app-store/screenshots/1.1/raw/iphone/03-files.png",
+      "sourceSHA256": "1fc62d04076dd378cc4f7317c299da3f4e2d0c8a2b93b4e9a23103b100511e42",
+      "sha256": "291a21cd9123b5d80d556baf93c3775676dc32a902606ef8ef92ee814cc03014"
+    },
+    {
+      "path": "docs/app-store/screenshots/1.1/iphone/zh-Hans/03-editor.jpg",
+      "platform": "iphone",
+      "locale": "zh-Hans",
+      "dimensions": [
+        1320,
+        2868
+      ],
+      "title": "从灵感到文件。",
+      "subtitle": "直接在工作空间中阅读与编辑。",
+      "source": "docs/app-store/screenshots/1.1/raw/iphone/04-editor.png",
+      "sourceSHA256": "e7c0abc0890bbaa8387dfff9c04912be66e9cb517b35ff73c49577c565c80b1e",
+      "sha256": "cfc3a8e9980347a24f135a39185cfb249011c4ff7a094c43893441a3edd18778"
+    },
+    {
+      "path": "docs/app-store/screenshots/1.1/iphone/zh-Hans/04-agents.jpg",
+      "platform": "iphone",
+      "locale": "zh-Hans",
+      "dimensions": [
+        1320,
+        2868
+      ],
+      "title": "你的智能体团队。",
+      "subtitle": "切换智能体，探索各自的工作空间。",
+      "source": "docs/app-store/screenshots/1.1/raw/iphone/02-agents.png",
+      "sourceSHA256": "5ab2099b2c84f3c3be92020c28547185c4733dadb8ff1b76a911a99f9342a736",
+      "sha256": "a8dca2a09f85f9153f218c93b3c8f9c72aa0229a98850b11d42fa26e40930a70"
+    },
+    {
+      "path": "docs/app-store/screenshots/1.1/iphone/ja/01-conversation.jpg",
+      "platform": "iphone",
+      "locale": "ja",
+      "dimensions": [
+        1320,
+        2868
+      ],
+      "title": "クラウドのコンピュータを、\nいつも手元に。",
+      "subtitle": "会話もファイルもツールも、Memoh のひとつの場所で。",
+      "source": "docs/app-store/screenshots/1.1/raw/iphone/01-conversation.png",
+      "sourceSHA256": "0a0ceecd738751818a1f366dc78dc8b0e6a32cb23ea692f09f0d7fcfcf50f7e6",
+      "sha256": "824debe458ae01664020d1c6a6508a8f45c3670cc9d235d9759c440fdf7ae015"
+    },
+    {
+      "path": "docs/app-store/screenshots/1.1/iphone/ja/02-files.jpg",
+      "platform": "iphone",
+      "locale": "ja",
+      "dimensions": [
+        1320,
+        2868
+      ],
+      "title": "作業をひとつの場所に。",
+      "subtitle": "会話とワークスペースのファイルに、いつでもアクセス。",
+      "source": "docs/app-store/screenshots/1.1/raw/iphone/03-files.png",
+      "sourceSHA256": "1fc62d04076dd378cc4f7317c299da3f4e2d0c8a2b93b4e9a23103b100511e42",
+      "sha256": "94347f542911699b0c19b58e657911d94458e73fcbb203159024fd09be50b3c6"
+    },
+    {
+      "path": "docs/app-store/screenshots/1.1/iphone/ja/03-editor.jpg",
+      "platform": "iphone",
+      "locale": "ja",
+      "dimensions": [
+        1320,
+        2868
+      ],
+      "title": "アイデアをファイルに。",
+      "subtitle": "ワークスペースでそのまま閲覧・編集。",
+      "source": "docs/app-store/screenshots/1.1/raw/iphone/04-editor.png",
+      "sourceSHA256": "e7c0abc0890bbaa8387dfff9c04912be66e9cb517b35ff73c49577c565c80b1e",
+      "sha256": "b079ea299092e304750d4227cff4cf52ab0b2a5cddb2160c00e503e9e087a999"
+    },
+    {
+      "path": "docs/app-store/screenshots/1.1/iphone/ja/04-agents.jpg",
+      "platform": "iphone",
+      "locale": "ja",
+      "dimensions": [
+        1320,
+        2868
+      ],
+      "title": "自分だけのチーム。",
+      "subtitle": "エージェントを切り替え、それぞれの作業場所へ。",
+      "source": "docs/app-store/screenshots/1.1/raw/iphone/02-agents.png",
+      "sourceSHA256": "5ab2099b2c84f3c3be92020c28547185c4733dadb8ff1b76a911a99f9342a736",
+      "sha256": "683b577ec983f6883387ffc7df7d665c2ab3f8fdef360227c016eaceb88ecc47"
+    },
+    {
+      "path": "docs/app-store/screenshots/1.1/iphone/es-ES/01-conversation.jpg",
+      "platform": "iphone",
+      "locale": "es-ES",
+      "dimensions": [
+        1320,
+        2868
+      ],
+      "title": "Tu ordenador en la nube.\nSiempre a mano.",
+      "subtitle": "Chats, archivos y herramientas en Memoh.",
+      "source": "docs/app-store/screenshots/1.1/raw/iphone/01-conversation.png",
+      "sourceSHA256": "0a0ceecd738751818a1f366dc78dc8b0e6a32cb23ea692f09f0d7fcfcf50f7e6",
+      "sha256": "a7810888698da40f002b7a77bfe4d891f93828dced055830793d108aa485ad68"
+    },
+    {
+      "path": "docs/app-store/screenshots/1.1/iphone/es-ES/02-files.jpg",
+      "platform": "iphone",
+      "locale": "es-ES",
+      "dimensions": [
+        1320,
+        2868
+      ],
+      "title": "Todo tu trabajo, junto.",
+      "subtitle": "Tus conversaciones y archivos, a mano.",
+      "source": "docs/app-store/screenshots/1.1/raw/iphone/03-files.png",
+      "sourceSHA256": "1fc62d04076dd378cc4f7317c299da3f4e2d0c8a2b93b4e9a23103b100511e42",
+      "sha256": "a5ce8686ccfa4d77eee68d5be5a4c264ec5577129fa1a7beb7f4005a71327460"
+    },
+    {
+      "path": "docs/app-store/screenshots/1.1/iphone/es-ES/03-editor.jpg",
+      "platform": "iphone",
+      "locale": "es-ES",
+      "dimensions": [
+        1320,
+        2868
+      ],
+      "title": "De la idea al archivo.",
+      "subtitle": "Lee y edita en tu espacio de trabajo.",
+      "source": "docs/app-store/screenshots/1.1/raw/iphone/04-editor.png",
+      "sourceSHA256": "e7c0abc0890bbaa8387dfff9c04912be66e9cb517b35ff73c49577c565c80b1e",
+      "sha256": "10659fd2bd12316800956afe7ed4d0d82a3aa2c86939ef91f7958b20f6ef4305"
+    },
+    {
+      "path": "docs/app-store/screenshots/1.1/iphone/es-ES/04-agents.jpg",
+      "platform": "iphone",
+      "locale": "es-ES",
+      "dimensions": [
+        1320,
+        2868
+      ],
+      "title": "Tu propio equipo.",
+      "subtitle": "Cambia de agente y explora sus espacios.",
+      "source": "docs/app-store/screenshots/1.1/raw/iphone/02-agents.png",
+      "sourceSHA256": "5ab2099b2c84f3c3be92020c28547185c4733dadb8ff1b76a911a99f9342a736",
+      "sha256": "25112f51fb5df241588f128340413fbff6d145610c0867f68e5600e13edd4f77"
+    },
+    {
+      "path": "docs/app-store/screenshots/1.1/ipad/en-US/01-conversation.jpg",
+      "platform": "ipad",
+      "locale": "en-US",
+      "dimensions": [
+        2064,
+        2752
+      ],
+      "title": "Your cloud computer. Within reach.",
+      "subtitle": "Chat, files and tools. One Memoh workspace.",
+      "source": "docs/app-store/screenshots/1.1/raw/ipad/01-conversation.png",
+      "sourceSHA256": "6c05003c1c91d41b2d69a35d6b81e6222d4b4fcff6f5044e7dd628e4e937adb7",
+      "sha256": "c07fd3b06de14e71a03fd44f5e215d454a99cac32e7270ed67bdfcb02f8eec8e"
+    },
+    {
+      "path": "docs/app-store/screenshots/1.1/ipad/en-US/02-files.jpg",
+      "platform": "ipad",
+      "locale": "en-US",
+      "dimensions": [
+        2064,
+        2752
+      ],
+      "title": "Keep work together.",
+      "subtitle": "Your conversations and files, within reach.",
+      "source": "docs/app-store/screenshots/1.1/raw/ipad/03-files.png",
+      "sourceSHA256": "9e8b5a3011fed65548cd9730843c076118b2aca7f4f2f265aa5b875d8527ac17",
+      "sha256": "5ad91a22bfade41ca627bd2d359b7b1941b2031b4f343e31dfab926526a11a97"
+    },
+    {
+      "path": "docs/app-store/screenshots/1.1/ipad/en-US/03-editor.jpg",
+      "platform": "ipad",
+      "locale": "en-US",
+      "dimensions": [
+        2064,
+        2752
+      ],
+      "title": "From idea to file.",
+      "subtitle": "Read and edit right in your workspace.",
+      "source": "docs/app-store/screenshots/1.1/raw/ipad/04-editor.png",
+      "sourceSHA256": "c7cfca14999ae7beb6dfc01491239b0a50dc236ea7e778e580031899e17ab1d5",
+      "sha256": "4f2d7594e2f8f8fd9017917fd17713fa70b5f097ba774aa9d800a94c27d043af"
+    },
+    {
+      "path": "docs/app-store/screenshots/1.1/ipad/en-US/04-agents.jpg",
+      "platform": "ipad",
+      "locale": "en-US",
+      "dimensions": [
+        2064,
+        2752
+      ],
+      "title": "A team of your own.",
+      "subtitle": "Switch agents. Explore their workspaces.",
+      "source": "docs/app-store/screenshots/1.1/raw/ipad/02-agents.png",
+      "sourceSHA256": "b2075c72b0757dbabc4fff7c6fed744319baaab87e8303d0700f52376eb279be",
+      "sha256": "2efacc9dc5aafb39ff753c9f15ab480f1a2769413c9b9a05598746a22d0060db"
+    },
+    {
+      "path": "docs/app-store/screenshots/1.1/ipad/zh-Hans/01-conversation.jpg",
+      "platform": "ipad",
+      "locale": "zh-Hans",
+      "dimensions": [
+        2064,
+        2752
+      ],
+      "title": "你的云电脑。 触手可及。",
+      "subtitle": "对话、文件与工具，汇聚在 Memoh 工作空间。",
+      "source": "docs/app-store/screenshots/1.1/raw/ipad/01-conversation.png",
+      "sourceSHA256": "6c05003c1c91d41b2d69a35d6b81e6222d4b4fcff6f5044e7dd628e4e937adb7",
+      "sha256": "fcdcba2ba6a3f03c447ca53ec16d67e9bcb407861f3b6868d6299ce39d0c573a"
+    },
+    {
+      "path": "docs/app-store/screenshots/1.1/ipad/zh-Hans/02-files.jpg",
+      "platform": "ipad",
+      "locale": "zh-Hans",
+      "dimensions": [
+        2064,
+        2752
+      ],
+      "title": "让工作井然有序。",
+      "subtitle": "随时访问对话与工作空间文件。",
+      "source": "docs/app-store/screenshots/1.1/raw/ipad/03-files.png",
+      "sourceSHA256": "9e8b5a3011fed65548cd9730843c076118b2aca7f4f2f265aa5b875d8527ac17",
+      "sha256": "e04653a86350b1aa02258c9a915bb922f9fd34a187f2c88f84c0796e435efe73"
+    },
+    {
+      "path": "docs/app-store/screenshots/1.1/ipad/zh-Hans/03-editor.jpg",
+      "platform": "ipad",
+      "locale": "zh-Hans",
+      "dimensions": [
+        2064,
+        2752
+      ],
+      "title": "从灵感到文件。",
+      "subtitle": "直接在工作空间中阅读与编辑。",
+      "source": "docs/app-store/screenshots/1.1/raw/ipad/04-editor.png",
+      "sourceSHA256": "c7cfca14999ae7beb6dfc01491239b0a50dc236ea7e778e580031899e17ab1d5",
+      "sha256": "1513ed5d2e1e3f37cf275e8085b32904d72a4ae6c0d81a2a4a4e02af2dadfeff"
+    },
+    {
+      "path": "docs/app-store/screenshots/1.1/ipad/zh-Hans/04-agents.jpg",
+      "platform": "ipad",
+      "locale": "zh-Hans",
+      "dimensions": [
+        2064,
+        2752
+      ],
+      "title": "你的智能体团队。",
+      "subtitle": "切换智能体，探索各自的工作空间。",
+      "source": "docs/app-store/screenshots/1.1/raw/ipad/02-agents.png",
+      "sourceSHA256": "b2075c72b0757dbabc4fff7c6fed744319baaab87e8303d0700f52376eb279be",
+      "sha256": "e7fc5848cce56e637563d10da7845f18f0df88983001ead26c84bd483d3c6e1d"
+    },
+    {
+      "path": "docs/app-store/screenshots/1.1/ipad/ja/01-conversation.jpg",
+      "platform": "ipad",
+      "locale": "ja",
+      "dimensions": [
+        2064,
+        2752
+      ],
+      "title": "クラウドのコンピュータを、 いつも手元に。",
+      "subtitle": "会話もファイルもツールも、Memoh のひとつの場所で。",
+      "source": "docs/app-store/screenshots/1.1/raw/ipad/01-conversation.png",
+      "sourceSHA256": "6c05003c1c91d41b2d69a35d6b81e6222d4b4fcff6f5044e7dd628e4e937adb7",
+      "sha256": "a4433000a03397f2409ec14910d6464ef1fb83ba3dbd1e993d03f29000a92cd7"
+    },
+    {
+      "path": "docs/app-store/screenshots/1.1/ipad/ja/02-files.jpg",
+      "platform": "ipad",
+      "locale": "ja",
+      "dimensions": [
+        2064,
+        2752
+      ],
+      "title": "作業をひとつの場所に。",
+      "subtitle": "会話とワークスペースのファイルに、いつでもアクセス。",
+      "source": "docs/app-store/screenshots/1.1/raw/ipad/03-files.png",
+      "sourceSHA256": "9e8b5a3011fed65548cd9730843c076118b2aca7f4f2f265aa5b875d8527ac17",
+      "sha256": "e5c5f6455e7036e4bda4011b7d277b293b867348f5bfc0df98fb6dd9a5709970"
+    },
+    {
+      "path": "docs/app-store/screenshots/1.1/ipad/ja/03-editor.jpg",
+      "platform": "ipad",
+      "locale": "ja",
+      "dimensions": [
+        2064,
+        2752
+      ],
+      "title": "アイデアをファイルに。",
+      "subtitle": "ワークスペースでそのまま閲覧・編集。",
+      "source": "docs/app-store/screenshots/1.1/raw/ipad/04-editor.png",
+      "sourceSHA256": "c7cfca14999ae7beb6dfc01491239b0a50dc236ea7e778e580031899e17ab1d5",
+      "sha256": "f38472014a996c746e4f59caabdffb466d3eae70e729921e9f7fbce17a390003"
+    },
+    {
+      "path": "docs/app-store/screenshots/1.1/ipad/ja/04-agents.jpg",
+      "platform": "ipad",
+      "locale": "ja",
+      "dimensions": [
+        2064,
+        2752
+      ],
+      "title": "自分だけのチーム。",
+      "subtitle": "エージェントを切り替え、それぞれの作業場所へ。",
+      "source": "docs/app-store/screenshots/1.1/raw/ipad/02-agents.png",
+      "sourceSHA256": "b2075c72b0757dbabc4fff7c6fed744319baaab87e8303d0700f52376eb279be",
+      "sha256": "f1a221d0d7b99faf470f44557ea50da53d9f494ce985c92594b7f7d49ead26d1"
+    },
+    {
+      "path": "docs/app-store/screenshots/1.1/ipad/es-ES/01-conversation.jpg",
+      "platform": "ipad",
+      "locale": "es-ES",
+      "dimensions": [
+        2064,
+        2752
+      ],
+      "title": "Tu ordenador en la nube. Siempre a mano.",
+      "subtitle": "Chats, archivos y herramientas en Memoh.",
+      "source": "docs/app-store/screenshots/1.1/raw/ipad/01-conversation.png",
+      "sourceSHA256": "6c05003c1c91d41b2d69a35d6b81e6222d4b4fcff6f5044e7dd628e4e937adb7",
+      "sha256": "c67fabdf37523e28ee59c43fb07a249211f2cdb239792e40e926804637af5acc"
+    },
+    {
+      "path": "docs/app-store/screenshots/1.1/ipad/es-ES/02-files.jpg",
+      "platform": "ipad",
+      "locale": "es-ES",
+      "dimensions": [
+        2064,
+        2752
+      ],
+      "title": "Todo tu trabajo, junto.",
+      "subtitle": "Tus conversaciones y archivos, a mano.",
+      "source": "docs/app-store/screenshots/1.1/raw/ipad/03-files.png",
+      "sourceSHA256": "9e8b5a3011fed65548cd9730843c076118b2aca7f4f2f265aa5b875d8527ac17",
+      "sha256": "1d5f835adb5704e91e6c98c3a98e993c0212b790672499ff7a538bcbf6a9fdcf"
+    },
+    {
+      "path": "docs/app-store/screenshots/1.1/ipad/es-ES/03-editor.jpg",
+      "platform": "ipad",
+      "locale": "es-ES",
+      "dimensions": [
+        2064,
+        2752
+      ],
+      "title": "De la idea al archivo.",
+      "subtitle": "Lee y edita en tu espacio de trabajo.",
+      "source": "docs/app-store/screenshots/1.1/raw/ipad/04-editor.png",
+      "sourceSHA256": "c7cfca14999ae7beb6dfc01491239b0a50dc236ea7e778e580031899e17ab1d5",
+      "sha256": "230b66efb068f4fac0b544324601ef23c6f5b27937771daeadce05c1b306a710"
+    },
+    {
+      "path": "docs/app-store/screenshots/1.1/ipad/es-ES/04-agents.jpg",
+      "platform": "ipad",
+      "locale": "es-ES",
+      "dimensions": [
+        2064,
+        2752
+      ],
+      "title": "Tu propio equipo.",
+      "subtitle": "Cambia de agente y explora sus espacios.",
+      "source": "docs/app-store/screenshots/1.1/raw/ipad/02-agents.png",
+      "sourceSHA256": "b2075c72b0757dbabc4fff7c6fed744319baaab87e8303d0700f52376eb279be",
+      "sha256": "2ce3279572a263d56286a6834f64231ec2ebd7ed7023a11f05d031ad9692cb4a"
+    },
+    {
+      "path": "docs/app-store/screenshots/1.1/mac/en-US/01-chat.jpg",
+      "platform": "mac",
+      "locale": "en-US",
+      "dimensions": [
+        2880,
+        1800
+      ],
+      "title": "Your cloud computer. Within reach.",
+      "subtitle": "Chat, files and tools. One Memoh workspace.",
+      "source": "docs/app-store/screenshots/native-mac/en-US/01-chat.jpg",
+      "sourceSHA256": "8e900e481d43004d1974c5c727dc9c01c163613d71cf0a8fa563f7033c06189f",
+      "sha256": "303e7837a7c26d37cce228fb36ae1f79efeb92eff00f9cf5557350989bb107a9"
+    },
+    {
+      "path": "docs/app-store/screenshots/1.1/mac/en-US/02-split-files.jpg",
+      "platform": "mac",
+      "locale": "en-US",
+      "dimensions": [
+        2880,
+        1800
+      ],
+      "title": "Keep work together.",
+      "subtitle": "Your conversations and files, within reach.",
+      "source": "docs/app-store/screenshots/native-mac/en-US/02-split-files.jpg",
+      "sourceSHA256": "c0a4f64bfcf75b98bd9ef2d35e5a836886c415fc23e48352aa82976a1ecb118d",
+      "sha256": "77f019d0a66f0a9e27a4e4362ec0e359ff0e145cc709119a9e79522263a3ff57"
+    },
+    {
+      "path": "docs/app-store/screenshots/1.1/mac/en-US/03-file-editor.jpg",
+      "platform": "mac",
+      "locale": "en-US",
+      "dimensions": [
+        2880,
+        1800
+      ],
+      "title": "From idea to file.",
+      "subtitle": "Read and edit right in your workspace.",
+      "source": "docs/app-store/screenshots/native-mac/en-US/03-file-editor.jpg",
+      "sourceSHA256": "392043ddcbd25076c79e96391da041b89ecda3baac30a2cdf3feaacad7d1562b",
+      "sha256": "13d35cdc572e239bd341252ec637cb2cae85d5658b3fa35540af0b886ac3bf8d"
+    },
+    {
+      "path": "docs/app-store/screenshots/1.1/mac/en-US/04-agents.jpg",
+      "platform": "mac",
+      "locale": "en-US",
+      "dimensions": [
+        2880,
+        1800
+      ],
+      "title": "A team of your own.",
+      "subtitle": "Switch agents. Explore their workspaces.",
+      "source": "docs/app-store/screenshots/native-mac/en-US/04-agents.jpg",
+      "sourceSHA256": "51fad804c3590df12e0dd4f45ae90dc73597b885329060b4d1682f4245db8239",
+      "sha256": "6a3e4f79fe0538dc8e99fbc36acec5a88d0104ccafbb762884c71d4054a89ed0"
+    },
+    {
+      "path": "docs/app-store/screenshots/1.1/mac/zh-Hans/01-chat.jpg",
+      "platform": "mac",
+      "locale": "zh-Hans",
+      "dimensions": [
+        2880,
+        1800
+      ],
+      "title": "你的云电脑。 触手可及。",
+      "subtitle": "对话、文件与工具，汇聚在 Memoh 工作空间。",
+      "source": "docs/app-store/screenshots/native-mac/en-US/01-chat.jpg",
+      "sourceSHA256": "8e900e481d43004d1974c5c727dc9c01c163613d71cf0a8fa563f7033c06189f",
+      "sha256": "b03708164ed53339faa67041e68fddd5aac2dec6aa4e089fc863cefbf3c607cf"
+    },
+    {
+      "path": "docs/app-store/screenshots/1.1/mac/zh-Hans/02-split-files.jpg",
+      "platform": "mac",
+      "locale": "zh-Hans",
+      "dimensions": [
+        2880,
+        1800
+      ],
+      "title": "让工作井然有序。",
+      "subtitle": "随时访问对话与工作空间文件。",
+      "source": "docs/app-store/screenshots/native-mac/en-US/02-split-files.jpg",
+      "sourceSHA256": "c0a4f64bfcf75b98bd9ef2d35e5a836886c415fc23e48352aa82976a1ecb118d",
+      "sha256": "b8702fd3881a947b00d1e2312188faa8e752fc9211b0abab1ccfcfcd7288599e"
+    },
+    {
+      "path": "docs/app-store/screenshots/1.1/mac/zh-Hans/03-file-editor.jpg",
+      "platform": "mac",
+      "locale": "zh-Hans",
+      "dimensions": [
+        2880,
+        1800
+      ],
+      "title": "从灵感到文件。",
+      "subtitle": "直接在工作空间中阅读与编辑。",
+      "source": "docs/app-store/screenshots/native-mac/en-US/03-file-editor.jpg",
+      "sourceSHA256": "392043ddcbd25076c79e96391da041b89ecda3baac30a2cdf3feaacad7d1562b",
+      "sha256": "dffb692bae79d3c4254681bba58e2efe6819dcba200bfd38c8204e4e2e4e4d83"
+    },
+    {
+      "path": "docs/app-store/screenshots/1.1/mac/zh-Hans/04-agents.jpg",
+      "platform": "mac",
+      "locale": "zh-Hans",
+      "dimensions": [
+        2880,
+        1800
+      ],
+      "title": "你的智能体团队。",
+      "subtitle": "切换智能体，探索各自的工作空间。",
+      "source": "docs/app-store/screenshots/native-mac/en-US/04-agents.jpg",
+      "sourceSHA256": "51fad804c3590df12e0dd4f45ae90dc73597b885329060b4d1682f4245db8239",
+      "sha256": "dd95bbf8b8524c972d8241782debab4574b16ab4dcf5a53e432cdddbb690ed34"
+    },
+    {
+      "path": "docs/app-store/screenshots/1.1/mac/ja/01-chat.jpg",
+      "platform": "mac",
+      "locale": "ja",
+      "dimensions": [
+        2880,
+        1800
+      ],
+      "title": "クラウドのコンピュータを、 いつも手元に。",
+      "subtitle": "会話もファイルもツールも、Memoh のひとつの場所で。",
+      "source": "docs/app-store/screenshots/native-mac/en-US/01-chat.jpg",
+      "sourceSHA256": "8e900e481d43004d1974c5c727dc9c01c163613d71cf0a8fa563f7033c06189f",
+      "sha256": "19aad2879faa6547167a6e523d9f79acd7b2b8f8c08316d78b47736cf8667689"
+    },
+    {
+      "path": "docs/app-store/screenshots/1.1/mac/ja/02-split-files.jpg",
+      "platform": "mac",
+      "locale": "ja",
+      "dimensions": [
+        2880,
+        1800
+      ],
+      "title": "作業をひとつの場所に。",
+      "subtitle": "会話とワークスペースのファイルに、いつでもアクセス。",
+      "source": "docs/app-store/screenshots/native-mac/en-US/02-split-files.jpg",
+      "sourceSHA256": "c0a4f64bfcf75b98bd9ef2d35e5a836886c415fc23e48352aa82976a1ecb118d",
+      "sha256": "34aa96d4f4bb75ebb37dd7320f1a1525a9e415c435de60585fa0f8b06b14881a"
+    },
+    {
+      "path": "docs/app-store/screenshots/1.1/mac/ja/03-file-editor.jpg",
+      "platform": "mac",
+      "locale": "ja",
+      "dimensions": [
+        2880,
+        1800
+      ],
+      "title": "アイデアをファイルに。",
+      "subtitle": "ワークスペースでそのまま閲覧・編集。",
+      "source": "docs/app-store/screenshots/native-mac/en-US/03-file-editor.jpg",
+      "sourceSHA256": "392043ddcbd25076c79e96391da041b89ecda3baac30a2cdf3feaacad7d1562b",
+      "sha256": "4c23a3647e8bf3db146b9d9ceb2f88840eae658e98ada37b9fa19e2a4af38c5e"
+    },
+    {
+      "path": "docs/app-store/screenshots/1.1/mac/ja/04-agents.jpg",
+      "platform": "mac",
+      "locale": "ja",
+      "dimensions": [
+        2880,
+        1800
+      ],
+      "title": "自分だけのチーム。",
+      "subtitle": "エージェントを切り替え、それぞれの作業場所へ。",
+      "source": "docs/app-store/screenshots/native-mac/en-US/04-agents.jpg",
+      "sourceSHA256": "51fad804c3590df12e0dd4f45ae90dc73597b885329060b4d1682f4245db8239",
+      "sha256": "c943fb78118778d3193d17a702de90a77203746e8b2fe1e531ebf98dd647fae6"
+    },
+    {
+      "path": "docs/app-store/screenshots/1.1/mac/es-ES/01-chat.jpg",
+      "platform": "mac",
+      "locale": "es-ES",
+      "dimensions": [
+        2880,
+        1800
+      ],
+      "title": "Tu ordenador en la nube. Siempre a mano.",
+      "subtitle": "Chats, archivos y herramientas en Memoh.",
+      "source": "docs/app-store/screenshots/native-mac/en-US/01-chat.jpg",
+      "sourceSHA256": "8e900e481d43004d1974c5c727dc9c01c163613d71cf0a8fa563f7033c06189f",
+      "sha256": "fa3242cdaeb5e2bbee8bdddbcf576f28cc9bdffdd05df7a49c3cc70b13dbb01d"
+    },
+    {
+      "path": "docs/app-store/screenshots/1.1/mac/es-ES/02-split-files.jpg",
+      "platform": "mac",
+      "locale": "es-ES",
+      "dimensions": [
+        2880,
+        1800
+      ],
+      "title": "Todo tu trabajo, junto.",
+      "subtitle": "Tus conversaciones y archivos, a mano.",
+      "source": "docs/app-store/screenshots/native-mac/en-US/02-split-files.jpg",
+      "sourceSHA256": "c0a4f64bfcf75b98bd9ef2d35e5a836886c415fc23e48352aa82976a1ecb118d",
+      "sha256": "40281cf0774b8808adc4a2287a5fc1bc113435602122caf10b92e380566f5402"
+    },
+    {
+      "path": "docs/app-store/screenshots/1.1/mac/es-ES/03-file-editor.jpg",
+      "platform": "mac",
+      "locale": "es-ES",
+      "dimensions": [
+        2880,
+        1800
+      ],
+      "title": "De la idea al archivo.",
+      "subtitle": "Lee y edita en tu espacio de trabajo.",
+      "source": "docs/app-store/screenshots/native-mac/en-US/03-file-editor.jpg",
+      "sourceSHA256": "392043ddcbd25076c79e96391da041b89ecda3baac30a2cdf3feaacad7d1562b",
+      "sha256": "1e6e57042235ddbfe0719159b6cfee031ccf928996611d3096ca8bb5d51feb52"
+    },
+    {
+      "path": "docs/app-store/screenshots/1.1/mac/es-ES/04-agents.jpg",
+      "platform": "mac",
+      "locale": "es-ES",
+      "dimensions": [
+        2880,
+        1800
+      ],
+      "title": "Tu propio equipo.",
+      "subtitle": "Cambia de agente y explora sus espacios.",
+      "source": "docs/app-store/screenshots/native-mac/en-US/04-agents.jpg",
+      "sourceSHA256": "51fad804c3590df12e0dd4f45ae90dc73597b885329060b4d1682f4245db8239",
+      "sha256": "37840108d828f084f98cf15a455bd92a483adc914c6607308d9bed76694f1a17"
+    },
+    {
+      "path": "docs/app-store/screenshots/1.1/vision/en-US/01-conversation.jpg",
+      "platform": "vision",
+      "locale": "en-US",
+      "dimensions": [
+        3840,
+        2160
+      ],
+      "title": "Your workspace. All around you.",
+      "subtitle": "Chat, files and tools. One Memoh workspace.",
+      "source": "docs/app-store/screenshots/1.1/raw/vision/01-conversation.png",
+      "sourceSHA256": "b048c07a9595203158678505c2ba0e687828dea42a918f522e70a527c7654c50",
+      "sha256": "de088b71dfe65021a0abd9ec73faa72feeb1feee50bb0e988274bca311c71dac"
+    },
+    {
+      "path": "docs/app-store/screenshots/1.1/vision/en-US/02-files.jpg",
+      "platform": "vision",
+      "locale": "en-US",
+      "dimensions": [
+        3840,
+        2160
+      ],
+      "title": "Keep work together.",
+      "subtitle": "Your conversations and files, within reach.",
+      "source": "docs/app-store/screenshots/1.1/raw/vision/03-files.png",
+      "sourceSHA256": "9ab6a83eeb713d996a182da4c0abff8889545d1edf67ac0bdde5374248e4c82f",
+      "sha256": "002a6b29c435b575c5c66b9cb97508f7ef8b4a8db8f0a462544ed926fedbd65c"
+    },
+    {
+      "path": "docs/app-store/screenshots/1.1/vision/en-US/03-chats.jpg",
+      "platform": "vision",
+      "locale": "en-US",
+      "dimensions": [
+        3840,
+        2160
+      ],
+      "title": "Keep work together.",
+      "subtitle": "Your conversations and files, within reach.",
+      "source": "docs/app-store/screenshots/1.1/raw/vision/04-chats.png",
+      "sourceSHA256": "30dfeb4ad2b8a4b7bd897c257afa8ef647bb297f89bd831d1e0153294a711579",
+      "sha256": "a144245589af7b161d0a676e121aeae035f5a339a1dda8ff2e6864f88ee3094c"
+    },
+    {
+      "path": "docs/app-store/screenshots/1.1/vision/en-US/04-agents.jpg",
+      "platform": "vision",
+      "locale": "en-US",
+      "dimensions": [
+        3840,
+        2160
+      ],
+      "title": "A team of your own.",
+      "subtitle": "Switch agents. Explore their workspaces.",
+      "source": "docs/app-store/screenshots/1.1/raw/vision/02-agents.png",
+      "sourceSHA256": "b1c7c00fcc60c53c86373faf26c73381c03916f0fc948982d836f07d352a19ec",
+      "sha256": "1645ae10b2743e2265b3c3641214d9ff72d05621b573311cfcde3d0cedba66d0"
+    },
+    {
+      "path": "docs/app-store/screenshots/1.1/vision/zh-Hans/01-conversation.jpg",
+      "platform": "vision",
+      "locale": "zh-Hans",
+      "dimensions": [
+        3840,
+        2160
+      ],
+      "title": "你的工作空间，就在身边。",
+      "subtitle": "对话、文件与工具，汇聚在 Memoh 工作空间。",
+      "source": "docs/app-store/screenshots/1.1/raw/vision/01-conversation.png",
+      "sourceSHA256": "b048c07a9595203158678505c2ba0e687828dea42a918f522e70a527c7654c50",
+      "sha256": "30a8dfcd8f5df921742b32ba22d5c3017ef7e40e38c7eb6d775ed3362006cdac"
+    },
+    {
+      "path": "docs/app-store/screenshots/1.1/vision/zh-Hans/02-files.jpg",
+      "platform": "vision",
+      "locale": "zh-Hans",
+      "dimensions": [
+        3840,
+        2160
+      ],
+      "title": "让工作井然有序。",
+      "subtitle": "随时访问对话与工作空间文件。",
+      "source": "docs/app-store/screenshots/1.1/raw/vision/03-files.png",
+      "sourceSHA256": "9ab6a83eeb713d996a182da4c0abff8889545d1edf67ac0bdde5374248e4c82f",
+      "sha256": "4425379f8adfbb95e55a4d90f7a1d9f15944e5315d8d9938e6e2b9403830ae1d"
+    },
+    {
+      "path": "docs/app-store/screenshots/1.1/vision/zh-Hans/03-chats.jpg",
+      "platform": "vision",
+      "locale": "zh-Hans",
+      "dimensions": [
+        3840,
+        2160
+      ],
+      "title": "让工作井然有序。",
+      "subtitle": "随时访问对话与工作空间文件。",
+      "source": "docs/app-store/screenshots/1.1/raw/vision/04-chats.png",
+      "sourceSHA256": "30dfeb4ad2b8a4b7bd897c257afa8ef647bb297f89bd831d1e0153294a711579",
+      "sha256": "b05e2bc27235aeed9074d195b5c54c62fd28af0a353328bc006c32dab5e9ab0d"
+    },
+    {
+      "path": "docs/app-store/screenshots/1.1/vision/zh-Hans/04-agents.jpg",
+      "platform": "vision",
+      "locale": "zh-Hans",
+      "dimensions": [
+        3840,
+        2160
+      ],
+      "title": "你的智能体团队。",
+      "subtitle": "切换智能体，探索各自的工作空间。",
+      "source": "docs/app-store/screenshots/1.1/raw/vision/02-agents.png",
+      "sourceSHA256": "b1c7c00fcc60c53c86373faf26c73381c03916f0fc948982d836f07d352a19ec",
+      "sha256": "1afaae1bbc1637c4fd3c1c9c9a9a09f0e35ede86cb3a89cf5790eb29233ee65b"
+    },
+    {
+      "path": "docs/app-store/screenshots/1.1/vision/ja/01-conversation.jpg",
+      "platform": "vision",
+      "locale": "ja",
+      "dimensions": [
+        3840,
+        2160
+      ],
+      "title": "ワークスペースが、あなたの周りに。",
+      "subtitle": "会話もファイルもツールも、Memoh のひとつの場所で。",
+      "source": "docs/app-store/screenshots/1.1/raw/vision/01-conversation.png",
+      "sourceSHA256": "b048c07a9595203158678505c2ba0e687828dea42a918f522e70a527c7654c50",
+      "sha256": "5578df392329477ebe9fd6ff37b0dde920a20d862199ac6cfd6aedcc8874eabf"
+    },
+    {
+      "path": "docs/app-store/screenshots/1.1/vision/ja/02-files.jpg",
+      "platform": "vision",
+      "locale": "ja",
+      "dimensions": [
+        3840,
+        2160
+      ],
+      "title": "作業をひとつの場所に。",
+      "subtitle": "会話とワークスペースのファイルに、いつでもアクセス。",
+      "source": "docs/app-store/screenshots/1.1/raw/vision/03-files.png",
+      "sourceSHA256": "9ab6a83eeb713d996a182da4c0abff8889545d1edf67ac0bdde5374248e4c82f",
+      "sha256": "39728a3ff9dcc572b94e0c59a493fd62dc86d48eabb204ad0e177e2a02cbc3de"
+    },
+    {
+      "path": "docs/app-store/screenshots/1.1/vision/ja/03-chats.jpg",
+      "platform": "vision",
+      "locale": "ja",
+      "dimensions": [
+        3840,
+        2160
+      ],
+      "title": "作業をひとつの場所に。",
+      "subtitle": "会話とワークスペースのファイルに、いつでもアクセス。",
+      "source": "docs/app-store/screenshots/1.1/raw/vision/04-chats.png",
+      "sourceSHA256": "30dfeb4ad2b8a4b7bd897c257afa8ef647bb297f89bd831d1e0153294a711579",
+      "sha256": "a850a8080d5140187cc3dee7dd5892fcebcbb45971bd98c6312e5e4899436106"
+    },
+    {
+      "path": "docs/app-store/screenshots/1.1/vision/ja/04-agents.jpg",
+      "platform": "vision",
+      "locale": "ja",
+      "dimensions": [
+        3840,
+        2160
+      ],
+      "title": "自分だけのチーム。",
+      "subtitle": "エージェントを切り替え、それぞれの作業場所へ。",
+      "source": "docs/app-store/screenshots/1.1/raw/vision/02-agents.png",
+      "sourceSHA256": "b1c7c00fcc60c53c86373faf26c73381c03916f0fc948982d836f07d352a19ec",
+      "sha256": "3fd60f81a8201fb0fac4616a798c38eb6c7c503d9d519f26ef2fa343d1047500"
+    },
+    {
+      "path": "docs/app-store/screenshots/1.1/vision/es-ES/01-conversation.jpg",
+      "platform": "vision",
+      "locale": "es-ES",
+      "dimensions": [
+        3840,
+        2160
+      ],
+      "title": "Tu espacio de trabajo, a tu alrededor.",
+      "subtitle": "Chats, archivos y herramientas en Memoh.",
+      "source": "docs/app-store/screenshots/1.1/raw/vision/01-conversation.png",
+      "sourceSHA256": "b048c07a9595203158678505c2ba0e687828dea42a918f522e70a527c7654c50",
+      "sha256": "2be57acbd7eaf00ecdb7a924af36cbfb42d71a4dbf9e9e18ddaaa0a93e398a89"
+    },
+    {
+      "path": "docs/app-store/screenshots/1.1/vision/es-ES/02-files.jpg",
+      "platform": "vision",
+      "locale": "es-ES",
+      "dimensions": [
+        3840,
+        2160
+      ],
+      "title": "Todo tu trabajo, junto.",
+      "subtitle": "Tus conversaciones y archivos, a mano.",
+      "source": "docs/app-store/screenshots/1.1/raw/vision/03-files.png",
+      "sourceSHA256": "9ab6a83eeb713d996a182da4c0abff8889545d1edf67ac0bdde5374248e4c82f",
+      "sha256": "3f48c74b8be5c26dc6bf0f751b6d73f8168495a06db68a5ad0b2907661ba9934"
+    },
+    {
+      "path": "docs/app-store/screenshots/1.1/vision/es-ES/03-chats.jpg",
+      "platform": "vision",
+      "locale": "es-ES",
+      "dimensions": [
+        3840,
+        2160
+      ],
+      "title": "Todo tu trabajo, junto.",
+      "subtitle": "Tus conversaciones y archivos, a mano.",
+      "source": "docs/app-store/screenshots/1.1/raw/vision/04-chats.png",
+      "sourceSHA256": "30dfeb4ad2b8a4b7bd897c257afa8ef647bb297f89bd831d1e0153294a711579",
+      "sha256": "93e9432968a2279162db549eb64675b2e9779e1094f81b6fa8cdc442a9675005"
+    },
+    {
+      "path": "docs/app-store/screenshots/1.1/vision/es-ES/04-agents.jpg",
+      "platform": "vision",
+      "locale": "es-ES",
+      "dimensions": [
+        3840,
+        2160
+      ],
+      "title": "Tu propio equipo.",
+      "subtitle": "Cambia de agente y explora sus espacios.",
+      "source": "docs/app-store/screenshots/1.1/raw/vision/02-agents.png",
+      "sourceSHA256": "b1c7c00fcc60c53c86373faf26c73381c03916f0fc948982d836f07d352a19ec",
+      "sha256": "65f790ff85f36fdb5f4e79e63b88a5969f3c6531a47fe978cfa09b44d27d4c9e"
+    }
+  ]
+}

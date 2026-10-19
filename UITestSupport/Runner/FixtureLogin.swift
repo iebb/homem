@@ -6,7 +6,7 @@ extension XCUIApplication {
         let counts = try JSONSerialization.jsonObject(with: data) as? [String: Int]
         return counts?[path] ?? 0
     }
-    @MainActor func launchFixture(scenario: String = "") {
+    @MainActor func launchFixture(scenario: String = "", useAccessToken: Bool = false) {
         resetFixture(scenario: scenario)
         launchArguments.removeAll { $0 == "--ui-onboarding" }
         launchArguments.append("--ui-onboarding")
@@ -14,12 +14,12 @@ extension XCUIApplication {
             launchArguments += ["-AppleLanguages", "(en)", "-AppleLocale", "en_US"]
         }
         launch()
-        signInToFixture()
+        signInToFixture(useAccessToken: useAccessToken)
         // Relaunch checks must restore the account created above, rather than
         // resetting onboarding and deleting it a second time.
         launchArguments.removeAll { $0 == "--ui-onboarding" }
     }
-    @MainActor func signInToFixture(username fixtureUsername: String = "fixture") {
+    @MainActor func signInToFixture(username fixtureUsername: String = "fixture", useAccessToken: Bool = false) {
         let custom = descendants(matching: .any).matching(identifier: "customServerSignIn").firstMatch
         XCTAssertTrue(custom.waitForExistence(timeout: 20))
         if !custom.isHittable { swipeUp() }
@@ -35,12 +35,19 @@ extension XCUIApplication {
             }
             address.typeText(url)
         }
-        let username = textFields["serverUsername"]
-        if !username.isHittable { swipeUp() }
-        username.tap(); username.typeText(fixtureUsername)
-        let password = secureTextFields["serverPassword"]
-        if !password.isHittable { swipeUp() }
-        password.tap(); password.typeText("fixture-password")
+        if useAccessToken {
+            buttons["serverLoginMethod"].tap()
+            let token = secureTextFields["serverToken"]
+            XCTAssertTrue(token.waitForExistence(timeout: 5))
+            token.tap(); token.typeText(fixtureUsername == "fixture-two" ? "homem-local-fixture-second-token" : "homem-local-fixture-token")
+        } else {
+            let username = textFields["serverUsername"]
+            if !username.isHittable { swipeUp() }
+            username.tap(); username.typeText(fixtureUsername)
+            let password = secureTextFields["serverPassword"]
+            if !password.isHittable { swipeUp() }
+            password.tap(); password.typeText("fixture-password")
+        }
         let connect = buttons["connectServer"]
         if !connect.isHittable { swipeUp() }
         connect.tap()

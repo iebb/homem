@@ -176,6 +176,7 @@ struct MacNewConversation: View {
     @State private var agentID = ""
     @State private var settings = JSONValue.null
     @State private var busy = false
+    @State private var loadingAgents = true
     @State private var error: String?
     var body: some View {
         VStack(alignment: .leading, spacing: 18) {
@@ -186,14 +187,18 @@ struct MacNewConversation: View {
                 if agents.count > 1 { Picker("Runtime", selection: $agentID) { ForEach(agents) { Text($0.name).tag($0.id) } } }
             }
             if let error { Text(error).foregroundStyle(.red).font(.caption) }
-            HStack { Spacer(); Button("Cancel") { dismiss() }.keyboardShortcut(.cancelAction); Button("Create") { create() }.keyboardShortcut(.defaultAction).buttonStyle(.borderedProminent).disabled(busy || botID.isEmpty) }
+            HStack { if busy || loadingAgents { ProgressView().controlSize(.small) }; Spacer(); Button("Cancel") { dismiss() }.keyboardShortcut(.cancelAction); Button("Create") { create() }.keyboardShortcut(.defaultAction).buttonStyle(.borderedProminent).disabled(busy || loadingAgents || botID.isEmpty) }
         }.padding(24).frame(width: 440)
         .task {
+            defer { loadingAgents = false }
             if let response = try? await api.call("/bots/\(botID.pathComponent)/agents") { agents = [.memoh] + ConversationAgent.enabled(in: response) }
             settings = (try? await api.call("/bots/\(botID.pathComponent)/settings")) ?? .null
+            let preferred = settings["default_bot_agent_id"].string
+            agentID = agents.contains { $0.id == preferred } ? preferred : ""
         }
     }
     private func create() {
+        guard !busy, !loadingAgents, !botID.isEmpty else { return }
         busy = true
         Task {
             defer { busy = false }
