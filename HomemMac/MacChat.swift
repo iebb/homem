@@ -20,8 +20,8 @@ struct MacChat: View {
             ScrollViewReader { proxy in
                 ScrollView {
                     LazyVStack(alignment: .leading, spacing: 22) {
-                        if model.hasMore { Button("Load Earlier Messages") { Task { await model.loadHistory(older: true) } } }
-                        ForEach(Array(model.visibleTurns.enumerated()), id: \.offset) { _, turn in
+                        if model.hasMore { Button("Load Earlier Messages") { Task { await model.loadHistory(older: true) } }.disabled(model.loading) }
+                        ForEach(model.visibleTurns, id: \.chatTurnID) { turn in
                             MacTurn(turn: turn, model: model, name: destination.botName)
                                 .contextMenu {
                                     Button("Copy") { NSPasteboard.general.clearContents(); NSPasteboard.general.setString(turn["role"] == "user" ? turn["text"].string : turn["messages"].array.map { $0["content"].string }.joined(separator: "\n"), forType: .string) }
@@ -33,17 +33,17 @@ struct MacChat: View {
                         Color.clear.frame(height: 1).id("bottom")
                     }.padding(24).frame(maxWidth: 820).frame(maxWidth: .infinity)
                 }.defaultScrollAnchor(.bottom)
-                    .onChange(of: model.visibleTurns.count) { _, _ in proxy.scrollTo("bottom", anchor: .bottom) }
+                    .onChange(of: model.latestTurnID) { _, _ in proxy.scrollTo("bottom", anchor: .bottom) }
                     .onChange(of: composing) { _, focused in if focused { proxy.scrollTo("bottom", anchor: .bottom) } }
             }
-            if !model.queue.items.isEmpty {
+            if !model.queue.items.isEmpty || model.queue.error != nil {
                 VStack(alignment: .leading, spacing: 6) {
                     ForEach(model.queue.items) { item in
                         HStack {
                             Image(systemName: "text.line.first.and.arrowtriangle.forward")
                             Text(item.text).lineLimit(2)
                             Spacer()
-                            if item.editable { Button("Remove") { Task { await model.queue.remove(item) } }.controlSize(.mini) }
+                            if item.editable { Button("Remove") { Task { await model.queue.remove(item) } }.controlSize(.mini).disabled(!model.queue.busy.isEmpty || model.queue.submitting) }
                         }
                     }
                     if let error = model.queue.error { Text(error).foregroundStyle(.red) }
@@ -63,7 +63,7 @@ struct MacChat: View {
                         .focused($composing).accessibilityLabel("Message").accessibilityIdentifier("nativeChatComposer")
                         .overlay(alignment: .topLeading) { if model.draft.isEmpty { Text("Message \(destination.botName)…").foregroundStyle(.tertiary).padding(.top, 14).padding(.leading, 12).allowsHitTesting(false) } }
                     HStack(spacing: 8) {
-                        Button { importing = true } label: { Image(systemName: "paperclip") }.buttonStyle(.plain).help("Attach files")
+                        Button { importing = true } label: { Image(systemName: "paperclip") }.buttonStyle(.plain).help("Attach files").disabled(attachments.count >= 5)
                         Button {
                             if voice.recording { if let url = voice.finish() { attach(url); try? FileManager.default.removeItem(at: url) } }
                             else { Task { await voice.start() } }
@@ -82,7 +82,7 @@ struct MacChat: View {
                         Button(action: send) { Image(systemName: "arrow.up") }
                             .buttonStyle(.borderedProminent).controlSize(.small).help("Send (⌘ Return)")
                             .keyboardShortcut(composing ? KeyboardShortcut(.return, modifiers: .command) : nil)
-                            .disabled(model.draft.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty && attachments.isEmpty)
+                            .disabled(model.queue.submitting || (model.draft.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty && attachments.isEmpty))
                     }.padding(.horizontal, 12).padding(.bottom, 10)
                 }.background(Color(nsColor: .controlBackgroundColor), in: RoundedRectangle(cornerRadius: 12))
                     .overlay(RoundedRectangle(cornerRadius: 12).stroke(Color.primary.opacity(0.1)))
@@ -110,7 +110,7 @@ struct MacChat: View {
     private func attach(_ url: URL) { do { attachments.append(try ChatAttachment.read(url, existingCount: attachments.count)) } catch { model.error = error.localizedDescription } }
     private func send() {
         let files = attachments
-        Task { if await model.send(attachments: files) { attachments = []; model.saveDraft() } }
+        Task { if await model.send(attachments: files) { if attachments == files { attachments = [] }; model.saveDraft() } }
     }
 }
 

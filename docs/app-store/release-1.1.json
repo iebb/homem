@@ -1,0 +1,163 @@
+{
+  "app": "Homem",
+  "appID": "6812852139",
+  "bundleID": "ad.neko.homem",
+  "version": "1.1",
+  "build": "110",
+  "date": "2026-10-19",
+  "timezone": "Asia/Singapore",
+  "releaseType": "AFTER_APPROVAL",
+  "status": "PREPARING_REVIEW_SUBMISSIONS",
+  "changes": [
+    "Stable conversation turn identities and no forced jump when loading earlier messages.",
+    "Reconnect refreshes preserve earlier loaded pages while replacing the server-authoritative recent tail.",
+    "History requests reject stale responses and use numeric pagination identifiers correctly.",
+    "Native Mac shows queue errors without queued items, retains newly added attachments during sends, and uses the configured default conversation agent."
+  ],
+  "keywordsAdded": [
+    "memoh",
+    "felinic"
+  ],
+  "locales": [
+    "en-US",
+    "zh-Hans",
+    "ja",
+    "es-ES"
+  ],
+  "validation": {
+    "iOSUnitTests": 135,
+    "macOSUnitTests": 57,
+    "visionOSUnitTests": 132,
+    "failures": 0,
+    "localizationStrings": 741,
+    "iPhoneScreenshotFlow": "PASSED",
+    "iPadScreenshotFlow": "PASSED",
+    "releaseArchives": [
+      "IOS",
+      "MAC_OS",
+      "VISION_OS"
+    ],
+    "assetCount": 64,
+    "assetChecks": [
+      "dimensions",
+      "RGB without alpha",
+      "source SHA-256",
+      "export SHA-256"
+    ]
+  },
+  "builds": [
+    {
+      "id": "461ab5a6-92da-41b3-91d0-e76122b321a5",
+      "build": "110",
+      "state": "VALID",
+      "platform": "IOS"
+    },
+    {
+      "id": "8c86d559-6451-4856-9cb3-63c82adefe92",
+      "build": "110",
+      "state": "VALID",
+      "platform": "VISION_OS"
+    },
+    {
+      "id": "8136b699-a5f3-457f-afcd-65fc74382331",
+      "build": "110",
+      "state": "VALID",
+      "platform": "MAC_OS"
+    }
+  ],
+  "versions": [
+    {
+      "platform": "IOS",
+      "id": "63a10f53-df3e-4ccc-9527-054ee5c3ad5c",
+      "state": "PREPARE_FOR_SUBMISSION",
+      "releaseType": "AFTER_APPROVAL",
+      "locales": [
+        {
+          "locale": "en-US",
+          "id": "f6625478-cb4c-40e0-8a3b-56e590540d04"
+        },
+        {
+          "locale": "zh-Hans",
+          "id": "a2d6a97c-c9c7-46aa-ad41-ad83684a6832"
+        },
+        {
+          "locale": "ja",
+          "id": "6ed0a632-a3a2-41a4-8867-2dec95565aaa"
+        },
+        {
+          "locale": "es-ES",
+          "id": "f11d2d97-24a5-436e-a367-522276341c68"
+        }
+      ]
+    },
+    {
+      "platform": "MAC_OS",
+      "id": "3006543c-ad12-4128-ac41-f7d4281a5c61",
+      "state": "PREPARE_FOR_SUBMISSION",
+      "releaseType": "AFTER_APPROVAL",
+      "locales": [
+        {
+          "locale": "ja",
+          "id": "13b70d52-a50b-4805-9a4c-d8324278de1f"
+        },
+        {
+          "locale": "es-ES",
+          "id": "091112a1-142f-4cc0-a794-a9fc6ffd4cad"
+        },
+        {
+          "locale": "en-US",
+          "id": "e7a64a11-8318-47fb-b202-7fd678dfbe05"
+        },
+        {
+          "locale": "zh-Hans",
+          "id": "dc0abeec-c7c2-4967-a794-21ba01fb31c3"
+        }
+      ]
+    },
+    {
+      "platform": "VISION_OS",
+      "id": "656b35e0-081a-4772-99a6-458ba9bafcf4",
+      "state": "PREPARE_FOR_SUBMISSION",
+      "releaseType": "AFTER_APPROVAL",
+      "locales": [
+        {
+          "locale": "en-US",
+          "id": "8f330c2d-dfe3-4a61-a468-b05e6cdeeb51"
+        },
+        {
+          "locale": "zh-Hans",
+          "id": "541f1209-063a-4328-bd2a-c5daeabe5496"
+        },
+        {
+          "locale": "ja",
+          "id": "b5238ac2-20c4-4cf7-b30f-d0e5fb7ef3e9"
+        },
+        {
+          "locale": "es-ES",
+          "id": "a2abd08b-a529-4923-b9ae-8392d39957b6"
+        }
+      ]
+    }
+  ],
+  "assets": {
+    "manifest": "screenshots/1.1/manifest.json",
+    "preview": "screenshots/1.1/preview.jpg",
+    "captureDates": {
+      "iphone": "2026-10-19",
+      "ipad": "2026-10-19",
+      "mac": "2026-10-03",
+      "vision": "2026-09-30"
+    },
+    "content": "Native app captures with fictional local fixture data. Localized promotional artwork surrounds intact, uniformly scaled captures. The native interface is English in every localization."
+  },
+  "distributionNotes": [
+    "Direct Xcode uploads use automatic Apple cloud signing and an App Store Connect API key.",
+    "iOS and visionOS exports require PATH=/usr/bin:/bin:/usr/sbin:/sbin so Apple rsync does not invoke incompatible Homebrew rsync.",
+    "Prebuilt WebRTC frameworks lack dSYMs; uploads succeeded and Apple processing accepted the builds.",
+    "Xcode Cloud is not used to deliver this release; its previously documented required-test/signing limitations remain."
+  ],
+  "references": [
+    "https://developer.apple.com/help/app-store-connect/reference/app-information/screenshot-specifications/",
+    "https://developer.apple.com/documentation/appstoreconnectapi/uploading-assets-to-app-store-connect"
+  ]
+}

@@ -1,6 +1,29 @@
 import XCTest
+import UIKit
 
 final class HomemUITests: XCTestCase {
+    @MainActor func testReleaseScreenshotGallery() throws {
+        XCUIDevice.shared.orientation = .portrait
+        let app = XCUIApplication()
+        app.launchArguments += ["-AppleInterfaceStyle", "Light"]
+        app.launchFixture(scenario: "screenshots", useAccessToken: true)
+        let conversation = app.buttons["conversation_welcome"]
+        XCTAssertTrue(conversation.waitForExistence(timeout: 15))
+        conversation.tap()
+        XCTAssertTrue(app.textFields["messageComposer"].waitForExistence(timeout: 10))
+        XCTAssertTrue(app.staticTexts.containing(NSPredicate(format: "label CONTAINS %@", "rhythm that leaves room")).firstMatch.waitForExistence(timeout: 10))
+        capture(app, "Release-01-conversation")
+        selectTab("Agents", in: app)
+        XCTAssertTrue(app.buttons["createAgent"].waitForExistence(timeout: 10))
+        capture(app, "Release-02-agents")
+        app.staticTexts["Atlas"].firstMatch.tap()
+        app.buttons["Files"].tap()
+        XCTAssertTrue(app.staticTexts["Weekly plan.md"].waitForExistence(timeout: 10))
+        capture(app, "Release-03-files")
+        app.staticTexts["Weekly plan.md"].tap()
+        XCTAssertTrue(app.textViews.firstMatch.waitForExistence(timeout: 10))
+        capture(app, "Release-04-editor")
+    }
     @MainActor func testCustomServerSignInOpensWorkspace() throws {
         let app = XCUIApplication(); app.launchArguments = ["--ui-onboarding"]; app.launch()
         func connectFixture() {
@@ -208,7 +231,15 @@ final class HomemUITests: XCTestCase {
         else { app.buttons[name].firstMatch.tap() } // iPad uses a floating tab control.
     }
     @MainActor private func capture(_ app: XCUIApplication, _ name: String) {
-        let attachment = XCTAttachment(screenshot: app.screenshot()); attachment.name = name; attachment.lifetime = .keepAlways; add(attachment)
+        let screenshot = app.screenshot()
+        let attachment = XCTAttachment(screenshot: screenshot); attachment.name = name; attachment.lifetime = .keepAlways; add(attachment)
+        if name.hasPrefix("Release-") {
+            let directory = FileManager.default.temporaryDirectory.appendingPathComponent("homem-release-captures")
+            do {
+                try FileManager.default.createDirectory(at: directory, withIntermediateDirectories: true)
+                try screenshot.pngRepresentation.write(to: directory.appendingPathComponent(String(name.dropFirst(8)) + ".png"))
+            } catch { XCTFail("Could not save release screenshot: \(error)") }
+        }
     }
     @MainActor func testConnectedConversationAndWorkspace() throws {
         let app = XCUIApplication(); app.launchFixture()
