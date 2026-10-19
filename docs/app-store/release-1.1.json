@@ -7,7 +7,7 @@
   "date": "2026-10-19",
   "timezone": "Asia/Singapore",
   "releaseType": "AFTER_APPROVAL",
-  "status": "PREPARING_REVIEW_SUBMISSIONS",
+  "status": "WAITING_FOR_REVIEW",
   "changes": [
     "Stable conversation turn identities and no forced jump when loading earlier messages.",
     "Reconnect refreshes preserve earlier loaded pages while replacing the server-authoritative recent tail.",
@@ -43,7 +43,15 @@
       "RGB without alpha",
       "source SHA-256",
       "export SHA-256"
-    ]
+    ],
+    "resultBundles": {
+      "ios": "build/Logs/Test/Test-Homem-2026.10.19_22-49-18-+0800.xcresult",
+      "mac": "build-mac/Logs/Test/Test-HomemMac-2026.10.19_22-49-06-+0800.xcresult",
+      "vision": "build-vision-ui/Logs/Test/Test-HomemVision-2026.10.19_22-52-43-+0800.xcresult",
+      "iphoneGallery": "build/Logs/Test/Test-Homem-2026.10.19_22-55-07-+0800.xcresult",
+      "ipadGallery": "build/Logs/Test/Test-Homem-2026.10.19_22-57-52-+0800.xcresult"
+    },
+    "remoteAssetDelivery": "64/64 COMPLETE; original MD5 checksums verified against local exports"
   },
   "builds": [
     {
@@ -69,7 +77,7 @@
     {
       "platform": "IOS",
       "id": "63a10f53-df3e-4ccc-9527-054ee5c3ad5c",
-      "state": "PREPARE_FOR_SUBMISSION",
+      "state": "WAITING_FOR_REVIEW",
       "releaseType": "AFTER_APPROVAL",
       "locales": [
         {
@@ -88,12 +96,13 @@
           "locale": "es-ES",
           "id": "f11d2d97-24a5-436e-a367-522276341c68"
         }
-      ]
+      ],
+      "submissionID": "6d139c26-a320-4cc1-bf1d-07fbca8f1cd5"
     },
     {
       "platform": "MAC_OS",
       "id": "3006543c-ad12-4128-ac41-f7d4281a5c61",
-      "state": "PREPARE_FOR_SUBMISSION",
+      "state": "WAITING_FOR_REVIEW",
       "releaseType": "AFTER_APPROVAL",
       "locales": [
         {
@@ -112,12 +121,13 @@
           "locale": "zh-Hans",
           "id": "dc0abeec-c7c2-4967-a794-21ba01fb31c3"
         }
-      ]
+      ],
+      "submissionID": "4bafdefb-1892-48ad-a3be-91c0cbe562a5"
     },
     {
       "platform": "VISION_OS",
       "id": "656b35e0-081a-4772-99a6-458ba9bafcf4",
-      "state": "PREPARE_FOR_SUBMISSION",
+      "state": "WAITING_FOR_REVIEW",
       "releaseType": "AFTER_APPROVAL",
       "locales": [
         {
@@ -136,7 +146,8 @@
           "locale": "es-ES",
           "id": "a2abd08b-a529-4923-b9ae-8392d39957b6"
         }
-      ]
+      ],
+      "submissionID": "dd75021f-17f0-4baa-85d6-4f9bfc467f95"
     }
   ],
   "assets": {
@@ -154,10 +165,548 @@
     "Direct Xcode uploads use automatic Apple cloud signing and an App Store Connect API key.",
     "iOS and visionOS exports require PATH=/usr/bin:/bin:/usr/sbin:/sbin so Apple rsync does not invoke incompatible Homebrew rsync.",
     "Prebuilt WebRTC frameworks lack dSYMs; uploads succeeded and Apple processing accepted the builds.",
-    "Xcode Cloud is not used to deliver this release; its previously documented required-test/signing limitations remain."
+    "Xcode Cloud is not used to deliver this release; its previously documented required-test/signing limitations remain.",
+    "Before the next Xcode Cloud archive, advance its shared build counter above 110. This direct release does not certify the prior Cloud workflow failures as resolved."
   ],
   "references": [
     "https://developer.apple.com/help/app-store-connect/reference/app-information/screenshot-specifications/",
     "https://developer.apple.com/documentation/appstoreconnectapi/uploading-assets-to-app-store-connect"
+  ],
+  "sourceCommit": "845dde827fa0f839059a1fa9fe8c54b08a827a41",
+  "pullRequest": "https://github.com/iebb/homem/pull/2",
+  "verifiedAt": "2026-10-19T23:09:52+08:00",
+  "reviewSubmissions": [
+    {
+      "platform": "MAC_OS",
+      "versionID": "3006543c-ad12-4128-ac41-f7d4281a5c61",
+      "buildID": "8136b699-a5f3-457f-afcd-65fc74382331",
+      "submissionID": "4bafdefb-1892-48ad-a3be-91c0cbe562a5",
+      "assets": [
+        {
+          "locale": "ja",
+          "display": "APP_DESKTOP",
+          "setID": "abd61e25-9845-457c-9821-5ea2a9575993",
+          "images": [
+            {
+              "id": "9c400019-613d-8fab-8024-c3abbf7965c1",
+              "fileName": "01-chat.jpg",
+              "state": "COMPLETE",
+              "sha256": "19aad2879faa6547167a6e523d9f79acd7b2b8f8c08316d78b47736cf8667689"
+            },
+            {
+              "id": "62400019-613d-8fab-8020-a806b96442f1",
+              "fileName": "02-split-files.jpg",
+              "state": "COMPLETE",
+              "sha256": "34aa96d4f4bb75ebb37dd7320f1a1525a9e415c435de60585fa0f8b06b14881a"
+            },
+            {
+              "id": "7e800019-613d-8fab-8018-7f0736d6996e",
+              "fileName": "03-file-editor.jpg",
+              "state": "COMPLETE",
+              "sha256": "4c23a3647e8bf3db146b9d9ceb2f88840eae658e98ada37b9fa19e2a4af38c5e"
+            },
+            {
+              "id": "7fc00019-613d-8fab-802a-5536447a03ea",
+              "fileName": "04-agents.jpg",
+              "state": "COMPLETE",
+              "sha256": "c943fb78118778d3193d17a702de90a77203746e8b2fe1e531ebf98dd647fae6"
+            }
+          ]
+        },
+        {
+          "locale": "es-ES",
+          "display": "APP_DESKTOP",
+          "setID": "4237d35b-c5c1-466c-bcd1-832e394fa052",
+          "images": [
+            {
+              "id": "95c00019-613d-8fab-802a-9ee42d246e16",
+              "fileName": "01-chat.jpg",
+              "state": "COMPLETE",
+              "sha256": "fa3242cdaeb5e2bbee8bdddbcf576f28cc9bdffdd05df7a49c3cc70b13dbb01d"
+            },
+            {
+              "id": "17c00019-613d-8fab-8037-413f1ee391e8",
+              "fileName": "02-split-files.jpg",
+              "state": "COMPLETE",
+              "sha256": "40281cf0774b8808adc4a2287a5fc1bc113435602122caf10b92e380566f5402"
+            },
+            {
+              "id": "87000019-613d-8fab-800c-5e790b1856a0",
+              "fileName": "03-file-editor.jpg",
+              "state": "COMPLETE",
+              "sha256": "1e6e57042235ddbfe0719159b6cfee031ccf928996611d3096ca8bb5d51feb52"
+            },
+            {
+              "id": "c9000019-613d-8fab-8022-ce6faaa93636",
+              "fileName": "04-agents.jpg",
+              "state": "COMPLETE",
+              "sha256": "37840108d828f084f98cf15a455bd92a483adc914c6607308d9bed76694f1a17"
+            }
+          ]
+        },
+        {
+          "locale": "en-US",
+          "display": "APP_DESKTOP",
+          "setID": "c5b49e1b-0ddb-4e71-aa66-161638992169",
+          "images": [
+            {
+              "id": "68000019-613d-8fab-8008-1b7b1845089c",
+              "fileName": "01-chat.jpg",
+              "state": "COMPLETE",
+              "sha256": "303e7837a7c26d37cce228fb36ae1f79efeb92eff00f9cf5557350989bb107a9"
+            },
+            {
+              "id": "c4000019-613d-8fab-800d-25f0fc879941",
+              "fileName": "02-split-files.jpg",
+              "state": "COMPLETE",
+              "sha256": "77f019d0a66f0a9e27a4e4362ec0e359ff0e145cc709119a9e79522263a3ff57"
+            },
+            {
+              "id": "37400019-613d-8fab-8009-75f01e833066",
+              "fileName": "03-file-editor.jpg",
+              "state": "COMPLETE",
+              "sha256": "13d35cdc572e239bd341252ec637cb2cae85d5658b3fa35540af0b886ac3bf8d"
+            },
+            {
+              "id": "ae400019-613d-8fab-8019-b4cea5a8763e",
+              "fileName": "04-agents.jpg",
+              "state": "COMPLETE",
+              "sha256": "6a3e4f79fe0538dc8e99fbc36acec5a88d0104ccafbb762884c71d4054a89ed0"
+            }
+          ]
+        },
+        {
+          "locale": "zh-Hans",
+          "display": "APP_DESKTOP",
+          "setID": "936f0032-cd69-4a07-903a-9cc7b9fd5573",
+          "images": [
+            {
+              "id": "db000019-613d-8fab-8034-34c123ed4bf9",
+              "fileName": "01-chat.jpg",
+              "state": "COMPLETE",
+              "sha256": "b03708164ed53339faa67041e68fddd5aac2dec6aa4e089fc863cefbf3c607cf"
+            },
+            {
+              "id": "62c00019-613d-8fab-8000-95d04e036fe9",
+              "fileName": "02-split-files.jpg",
+              "state": "COMPLETE",
+              "sha256": "b8702fd3881a947b00d1e2312188faa8e752fc9211b0abab1ccfcfcd7288599e"
+            },
+            {
+              "id": "eb800019-613d-8fab-803a-b7452df3f51c",
+              "fileName": "03-file-editor.jpg",
+              "state": "COMPLETE",
+              "sha256": "dffb692bae79d3c4254681bba58e2efe6819dcba200bfd38c8204e4e2e4e4d83"
+            },
+            {
+              "id": "17400019-613d-8fab-802b-0f8791400892",
+              "fileName": "04-agents.jpg",
+              "state": "COMPLETE",
+              "sha256": "dd95bbf8b8524c972d8241782debab4574b16ab4dcf5a53e432cdddbb690ed34"
+            }
+          ]
+        }
+      ],
+      "submissionState": "WAITING_FOR_REVIEW",
+      "versionState": "WAITING_FOR_REVIEW",
+      "submittedDate": "2026-10-19T15:07:27.67Z",
+      "releaseType": "AFTER_APPROVAL"
+    },
+    {
+      "platform": "VISION_OS",
+      "versionID": "656b35e0-081a-4772-99a6-458ba9bafcf4",
+      "buildID": "8c86d559-6451-4856-9cb3-63c82adefe92",
+      "submissionID": "dd75021f-17f0-4baa-85d6-4f9bfc467f95",
+      "assets": [
+        {
+          "locale": "en-US",
+          "display": "APP_APPLE_VISION_PRO",
+          "setID": "29c9269d-7093-41cd-b3b5-3ec8aed31ac7",
+          "images": [
+            {
+              "id": "37400019-613d-8fab-8012-449174118f8d",
+              "fileName": "01-conversation.jpg",
+              "state": "COMPLETE",
+              "sha256": "de088b71dfe65021a0abd9ec73faa72feeb1feee50bb0e988274bca311c71dac"
+            },
+            {
+              "id": "49c00019-613d-8fab-8016-184def028878",
+              "fileName": "02-files.jpg",
+              "state": "COMPLETE",
+              "sha256": "002a6b29c435b575c5c66b9cb97508f7ef8b4a8db8f0a462544ed926fedbd65c"
+            },
+            {
+              "id": "ed800019-613d-8fab-800a-edd39b0c5da2",
+              "fileName": "03-chats.jpg",
+              "state": "COMPLETE",
+              "sha256": "a144245589af7b161d0a676e121aeae035f5a339a1dda8ff2e6864f88ee3094c"
+            },
+            {
+              "id": "48800019-613d-8fab-8007-57b70c14f93a",
+              "fileName": "04-agents.jpg",
+              "state": "COMPLETE",
+              "sha256": "1645ae10b2743e2265b3c3641214d9ff72d05621b573311cfcde3d0cedba66d0"
+            }
+          ]
+        },
+        {
+          "locale": "zh-Hans",
+          "display": "APP_APPLE_VISION_PRO",
+          "setID": "2d7a8912-1a44-4b3c-81e1-08c764e56c58",
+          "images": [
+            {
+              "id": "17000019-613d-8fab-803e-4a8ea55ac319",
+              "fileName": "01-conversation.jpg",
+              "state": "COMPLETE",
+              "sha256": "30a8dfcd8f5df921742b32ba22d5c3017ef7e40e38c7eb6d775ed3362006cdac"
+            },
+            {
+              "id": "7a800019-613d-8fab-8035-d1bb0d79f955",
+              "fileName": "02-files.jpg",
+              "state": "COMPLETE",
+              "sha256": "4425379f8adfbb95e55a4d90f7a1d9f15944e5315d8d9938e6e2b9403830ae1d"
+            },
+            {
+              "id": "5bc00019-613d-8fab-8013-ec444abb885d",
+              "fileName": "03-chats.jpg",
+              "state": "COMPLETE",
+              "sha256": "b05e2bc27235aeed9074d195b5c54c62fd28af0a353328bc006c32dab5e9ab0d"
+            },
+            {
+              "id": "d5800019-613d-8fab-803b-5d4425788644",
+              "fileName": "04-agents.jpg",
+              "state": "COMPLETE",
+              "sha256": "1afaae1bbc1637c4fd3c1c9c9a9a09f0e35ede86cb3a89cf5790eb29233ee65b"
+            }
+          ]
+        },
+        {
+          "locale": "ja",
+          "display": "APP_APPLE_VISION_PRO",
+          "setID": "8de3df0e-4b52-4048-884a-e5d9f8b30506",
+          "images": [
+            {
+              "id": "5e400019-613d-8fab-802e-69d69fffb756",
+              "fileName": "01-conversation.jpg",
+              "state": "COMPLETE",
+              "sha256": "5578df392329477ebe9fd6ff37b0dde920a20d862199ac6cfd6aedcc8874eabf"
+            },
+            {
+              "id": "3cc00019-613d-8fab-803c-d3a36c4944ec",
+              "fileName": "02-files.jpg",
+              "state": "COMPLETE",
+              "sha256": "39728a3ff9dcc572b94e0c59a493fd62dc86d48eabb204ad0e177e2a02cbc3de"
+            },
+            {
+              "id": "d9000019-613d-8fab-8003-2746959b8211",
+              "fileName": "03-chats.jpg",
+              "state": "COMPLETE",
+              "sha256": "a850a8080d5140187cc3dee7dd5892fcebcbb45971bd98c6312e5e4899436106"
+            },
+            {
+              "id": "26c00019-613d-8fab-800c-6cf0f7ffc5bc",
+              "fileName": "04-agents.jpg",
+              "state": "COMPLETE",
+              "sha256": "3fd60f81a8201fb0fac4616a798c38eb6c7c503d9d519f26ef2fa343d1047500"
+            }
+          ]
+        },
+        {
+          "locale": "es-ES",
+          "display": "APP_APPLE_VISION_PRO",
+          "setID": "eb94a998-5584-4158-8a34-64e219523ebd",
+          "images": [
+            {
+              "id": "19000019-613d-8fab-8002-f6234b76cd3f",
+              "fileName": "01-conversation.jpg",
+              "state": "COMPLETE",
+              "sha256": "2be57acbd7eaf00ecdb7a924af36cbfb42d71a4dbf9e9e18ddaaa0a93e398a89"
+            },
+            {
+              "id": "7b800019-613d-8fab-8031-b7bc8cbf5f12",
+              "fileName": "02-files.jpg",
+              "state": "COMPLETE",
+              "sha256": "3f48c74b8be5c26dc6bf0f751b6d73f8168495a06db68a5ad0b2907661ba9934"
+            },
+            {
+              "id": "21400019-613d-8fab-800f-b69e49bec1e9",
+              "fileName": "03-chats.jpg",
+              "state": "COMPLETE",
+              "sha256": "93e9432968a2279162db549eb64675b2e9779e1094f81b6fa8cdc442a9675005"
+            },
+            {
+              "id": "f7800019-613d-8fab-8039-130d54a0bcc5",
+              "fileName": "04-agents.jpg",
+              "state": "COMPLETE",
+              "sha256": "65f790ff85f36fdb5f4e79e63b88a5969f3c6531a47fe978cfa09b44d27d4c9e"
+            }
+          ]
+        }
+      ],
+      "submissionState": "WAITING_FOR_REVIEW",
+      "versionState": "WAITING_FOR_REVIEW",
+      "submittedDate": "2026-10-19T15:07:44.287Z",
+      "releaseType": "AFTER_APPROVAL"
+    },
+    {
+      "platform": "IOS",
+      "versionID": "63a10f53-df3e-4ccc-9527-054ee5c3ad5c",
+      "buildID": "461ab5a6-92da-41b3-91d0-e76122b321a5",
+      "submissionID": "6d139c26-a320-4cc1-bf1d-07fbca8f1cd5",
+      "assets": [
+        {
+          "locale": "en-US",
+          "display": "APP_IPHONE_67",
+          "setID": "0b64a505-eb2f-4771-97e8-d051f502f958",
+          "images": [
+            {
+              "id": "93000019-613d-8fab-8010-77cfe03e5ccb",
+              "fileName": "01-conversation.jpg",
+              "state": "COMPLETE",
+              "sha256": "e9f76eabba87c6ee0cfff86a2b0f49e35b7dc86563ce4e345e442eafd9465a63"
+            },
+            {
+              "id": "fb400019-613d-8fab-800f-f4cda7301165",
+              "fileName": "02-files.jpg",
+              "state": "COMPLETE",
+              "sha256": "59f4a3dacf03d80a47e8764766c077efde9fd97161b0fd89a8a62bf1187b266e"
+            },
+            {
+              "id": "62400019-613d-8fab-801f-e1ec87078f14",
+              "fileName": "03-editor.jpg",
+              "state": "COMPLETE",
+              "sha256": "c019824322d474caac034e2ab1235d3a0dee1d37c07e6266adb1f4f6e25779de"
+            },
+            {
+              "id": "36000019-613d-8fab-8016-941086da3d9e",
+              "fileName": "04-agents.jpg",
+              "state": "COMPLETE",
+              "sha256": "d4ff55c46b6249f1dfe37642081b0908ff3bb84bdd747cdbcc17d298695958a9"
+            }
+          ]
+        },
+        {
+          "locale": "en-US",
+          "display": "APP_IPAD_PRO_3GEN_129",
+          "setID": "3a9600d4-3e2f-4c72-b030-131f15e35ae7",
+          "images": [
+            {
+              "id": "5f400019-613d-8fab-8029-2f198b859564",
+              "fileName": "01-conversation.jpg",
+              "state": "COMPLETE",
+              "sha256": "c07fd3b06de14e71a03fd44f5e215d454a99cac32e7270ed67bdfcb02f8eec8e"
+            },
+            {
+              "id": "80c00019-613d-8fab-802a-bfe0e6a9cbe2",
+              "fileName": "02-files.jpg",
+              "state": "COMPLETE",
+              "sha256": "5ad91a22bfade41ca627bd2d359b7b1941b2031b4f343e31dfab926526a11a97"
+            },
+            {
+              "id": "fa400019-613d-8fab-800d-65ba4f1e9320",
+              "fileName": "03-editor.jpg",
+              "state": "COMPLETE",
+              "sha256": "4f2d7594e2f8f8fd9017917fd17713fa70b5f097ba774aa9d800a94c27d043af"
+            },
+            {
+              "id": "1f800019-613d-8fab-8023-9d78b91b8c6c",
+              "fileName": "04-agents.jpg",
+              "state": "COMPLETE",
+              "sha256": "2efacc9dc5aafb39ff753c9f15ab480f1a2769413c9b9a05598746a22d0060db"
+            }
+          ]
+        },
+        {
+          "locale": "zh-Hans",
+          "display": "APP_IPHONE_67",
+          "setID": "8c7fe114-0af5-4d5f-8c13-52b51f5e3e59",
+          "images": [
+            {
+              "id": "63000019-613d-8fab-8018-95de46675fae",
+              "fileName": "01-conversation.jpg",
+              "state": "COMPLETE",
+              "sha256": "25a398ef40b38c3d8ed16e2782955c4e65b989d737bf7bc7ad4ebe149353f030"
+            },
+            {
+              "id": "2dc00019-613d-8fab-8016-f0dd96df19c2",
+              "fileName": "02-files.jpg",
+              "state": "COMPLETE",
+              "sha256": "291a21cd9123b5d80d556baf93c3775676dc32a902606ef8ef92ee814cc03014"
+            },
+            {
+              "id": "e0400019-613d-8fab-8024-45ec11650dde",
+              "fileName": "03-editor.jpg",
+              "state": "COMPLETE",
+              "sha256": "cfc3a8e9980347a24f135a39185cfb249011c4ff7a094c43893441a3edd18778"
+            },
+            {
+              "id": "aa800019-613d-8fab-800b-f39cd052af9f",
+              "fileName": "04-agents.jpg",
+              "state": "COMPLETE",
+              "sha256": "a8dca2a09f85f9153f218c93b3c8f9c72aa0229a98850b11d42fa26e40930a70"
+            }
+          ]
+        },
+        {
+          "locale": "zh-Hans",
+          "display": "APP_IPAD_PRO_3GEN_129",
+          "setID": "20dd6a25-e436-49cf-8e69-d7b07e38e595",
+          "images": [
+            {
+              "id": "07800019-613d-8fab-802a-ba7828b520b1",
+              "fileName": "01-conversation.jpg",
+              "state": "COMPLETE",
+              "sha256": "fcdcba2ba6a3f03c447ca53ec16d67e9bcb407861f3b6868d6299ce39d0c573a"
+            },
+            {
+              "id": "51000019-613d-8fab-8024-5e44de1a0fd7",
+              "fileName": "02-files.jpg",
+              "state": "COMPLETE",
+              "sha256": "e04653a86350b1aa02258c9a915bb922f9fd34a187f2c88f84c0796e435efe73"
+            },
+            {
+              "id": "3c400019-613d-8fab-8015-b871fedad603",
+              "fileName": "03-editor.jpg",
+              "state": "COMPLETE",
+              "sha256": "1513ed5d2e1e3f37cf275e8085b32904d72a4ae6c0d81a2a4a4e02af2dadfeff"
+            },
+            {
+              "id": "da800019-613d-8fab-8015-043f8d181ce2",
+              "fileName": "04-agents.jpg",
+              "state": "COMPLETE",
+              "sha256": "e7fc5848cce56e637563d10da7845f18f0df88983001ead26c84bd483d3c6e1d"
+            }
+          ]
+        },
+        {
+          "locale": "ja",
+          "display": "APP_IPHONE_67",
+          "setID": "b0833e12-d17e-4c22-8113-5c97e0665faa",
+          "images": [
+            {
+              "id": "da800019-613d-8fab-8017-3945a25f92ed",
+              "fileName": "01-conversation.jpg",
+              "state": "COMPLETE",
+              "sha256": "824debe458ae01664020d1c6a6508a8f45c3670cc9d235d9759c440fdf7ae015"
+            },
+            {
+              "id": "67400019-613d-8fab-800c-ae6fe17c1141",
+              "fileName": "02-files.jpg",
+              "state": "COMPLETE",
+              "sha256": "94347f542911699b0c19b58e657911d94458e73fcbb203159024fd09be50b3c6"
+            },
+            {
+              "id": "10400019-613d-8fab-8003-2a619fb6031b",
+              "fileName": "03-editor.jpg",
+              "state": "COMPLETE",
+              "sha256": "b079ea299092e304750d4227cff4cf52ab0b2a5cddb2160c00e503e9e087a999"
+            },
+            {
+              "id": "b6c00019-613d-8fab-8003-6ead44d403ed",
+              "fileName": "04-agents.jpg",
+              "state": "COMPLETE",
+              "sha256": "683b577ec983f6883387ffc7df7d665c2ab3f8fdef360227c016eaceb88ecc47"
+            }
+          ]
+        },
+        {
+          "locale": "ja",
+          "display": "APP_IPAD_PRO_3GEN_129",
+          "setID": "179e6cd6-b7f8-407e-8b01-b6e7400161d0",
+          "images": [
+            {
+              "id": "a4c00019-613d-8fab-802b-a3dc391d1e9c",
+              "fileName": "01-conversation.jpg",
+              "state": "COMPLETE",
+              "sha256": "a4433000a03397f2409ec14910d6464ef1fb83ba3dbd1e993d03f29000a92cd7"
+            },
+            {
+              "id": "cb400019-613d-8fab-8011-91bcb94d052b",
+              "fileName": "02-files.jpg",
+              "state": "COMPLETE",
+              "sha256": "e5c5f6455e7036e4bda4011b7d277b293b867348f5bfc0df98fb6dd9a5709970"
+            },
+            {
+              "id": "d9c00019-613d-8fab-8034-af89e64d7012",
+              "fileName": "03-editor.jpg",
+              "state": "COMPLETE",
+              "sha256": "f38472014a996c746e4f59caabdffb466d3eae70e729921e9f7fbce17a390003"
+            },
+            {
+              "id": "66400019-613d-8fab-8004-32e2eb7281e6",
+              "fileName": "04-agents.jpg",
+              "state": "COMPLETE",
+              "sha256": "f1a221d0d7b99faf470f44557ea50da53d9f494ce985c92594b7f7d49ead26d1"
+            }
+          ]
+        },
+        {
+          "locale": "es-ES",
+          "display": "APP_IPHONE_67",
+          "setID": "f911b994-38b6-4aee-8a0e-dbb28fb721d5",
+          "images": [
+            {
+              "id": "13c00019-613d-8fab-8028-6023a5507e31",
+              "fileName": "01-conversation.jpg",
+              "state": "COMPLETE",
+              "sha256": "a7810888698da40f002b7a77bfe4d891f93828dced055830793d108aa485ad68"
+            },
+            {
+              "id": "d8c00019-613d-8fab-802b-358528ba9999",
+              "fileName": "02-files.jpg",
+              "state": "COMPLETE",
+              "sha256": "a5ce8686ccfa4d77eee68d5be5a4c264ec5577129fa1a7beb7f4005a71327460"
+            },
+            {
+              "id": "dc000019-613d-8fab-8013-c1eb3db9893a",
+              "fileName": "03-editor.jpg",
+              "state": "COMPLETE",
+              "sha256": "10659fd2bd12316800956afe7ed4d0d82a3aa2c86939ef91f7958b20f6ef4305"
+            },
+            {
+              "id": "43000019-613d-8fab-8007-acc93958a7e0",
+              "fileName": "04-agents.jpg",
+              "state": "COMPLETE",
+              "sha256": "25112f51fb5df241588f128340413fbff6d145610c0867f68e5600e13edd4f77"
+            }
+          ]
+        },
+        {
+          "locale": "es-ES",
+          "display": "APP_IPAD_PRO_3GEN_129",
+          "setID": "59e6c4eb-2d15-4ddf-bf31-9ca311441935",
+          "images": [
+            {
+              "id": "9b000019-613d-8fab-8019-afd2912d7b7a",
+              "fileName": "01-conversation.jpg",
+              "state": "COMPLETE",
+              "sha256": "c67fabdf37523e28ee59c43fb07a249211f2cdb239792e40e926804637af5acc"
+            },
+            {
+              "id": "e6400019-613d-8fab-8011-1092c0005974",
+              "fileName": "02-files.jpg",
+              "state": "COMPLETE",
+              "sha256": "1d5f835adb5704e91e6c98c3a98e993c0212b790672499ff7a538bcbf6a9fdcf"
+            },
+            {
+              "id": "34c00019-613d-8fab-801f-ac2f15283bdd",
+              "fileName": "03-editor.jpg",
+              "state": "COMPLETE",
+              "sha256": "230b66efb068f4fac0b544324601ef23c6f5b27937771daeadce05c1b306a710"
+            },
+            {
+              "id": "91c00019-613d-8fab-8031-3241620d69a5",
+              "fileName": "04-agents.jpg",
+              "state": "COMPLETE",
+              "sha256": "2ce3279572a263d56286a6834f64231ec2ebd7ed7023a11f05d031ad9692cb4a"
+            }
+          ]
+        }
+      ],
+      "submissionState": "WAITING_FOR_REVIEW",
+      "versionState": "WAITING_FOR_REVIEW",
+      "submittedDate": "2026-10-19T15:09:03.085Z",
+      "releaseType": "AFTER_APPROVAL"
+    }
   ]
 }
