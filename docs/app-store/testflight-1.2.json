@@ -6,7 +6,7 @@
   "date": "2026-10-26",
   "timezone": "Asia/Singapore",
   "distribution": "TESTFLIGHT_INTERNAL",
-  "status": "UPLOADING_AND_VALIDATING",
+  "status": "IN_BETA_TESTING",
   "appStoreSubmission": false,
   "testGroup": {
     "id": "926f0163-0a4e-41e4-b3b6-2eb289f969c3",
@@ -38,11 +38,54 @@
       "iPhone": "build/Logs/Test/Test-Homem-2026.10.26_17-04-55-+0800.xcresult",
       "iPad": "build/Logs/Test/Test-Homem-2026.10.26_17-06-46-+0800.xcresult",
       "visionOS": "build-vision-ui/Logs/Test/Test-HomemVision-2026.10.26_17-10-10-+0800.xcresult"
-    }
+    },
+    "testFlightGroupMembership": "All three build IDs verified in Homem Internal"
   },
   "qaImages": "../ui/2026-10-26-resources/",
   "distributionNotes": [
     "Published to the existing internal group only; no external beta review or App Store version/review submission is created.",
     "Native macOS receives the 1.2 maintenance version; the resource control change applies to the shared iOS, iPadOS and visionOS UI."
-  ]
+  ],
+  "sourceCommit": "ea13fe23c1d397125ad9e5972c1985062e8a008f",
+  "pullRequest": "https://github.com/iebb/homem/pull/3",
+  "builds": [
+    {
+      "platform": "MAC_OS",
+      "buildID": "ae269114-ceb4-45ca-b945-5e748b2efad6",
+      "version": "1.2",
+      "build": "120",
+      "processingState": "VALID",
+      "groupID": "926f0163-0a4e-41e4-b3b6-2eb289f969c3",
+      "groupName": "Homem Internal",
+      "internalBuildState": "IN_BETA_TESTING",
+      "externalBuildState": "READY_FOR_BETA_SUBMISSION",
+      "verifiedAt": "2026-10-26T09:09:23.746Z"
+    },
+    {
+      "platform": "IOS",
+      "buildID": "7ee0dd04-b64c-445e-9835-37ba962aea4c",
+      "version": "1.2",
+      "build": "120",
+      "processingState": "VALID",
+      "groupID": "926f0163-0a4e-41e4-b3b6-2eb289f969c3",
+      "groupName": "Homem Internal",
+      "internalBuildState": "IN_BETA_TESTING",
+      "externalBuildState": "READY_FOR_BETA_SUBMISSION",
+      "verifiedAt": "2026-10-26T09:12:17.308Z"
+    },
+    {
+      "platform": "VISION_OS",
+      "buildID": "4b28600f-a7e0-4a6e-abcd-0dece8ab833d",
+      "version": "1.2",
+      "build": "120",
+      "processingState": "VALID",
+      "groupID": "926f0163-0a4e-41e4-b3b6-2eb289f969c3",
+      "groupName": "Homem Internal",
+      "internalBuildState": "IN_BETA_TESTING",
+      "externalBuildState": "READY_FOR_BETA_SUBMISSION",
+      "verifiedAt": "2026-10-26T09:14:54.835Z"
+    }
+  ],
+  "verifiedAt": "2026-10-26T09:15:28.837Z",
+  "appStoreVersionCreated": false
 }
