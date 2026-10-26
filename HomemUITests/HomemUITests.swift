@@ -2,6 +2,39 @@ import XCTest
 import UIKit
 
 final class HomemUITests: XCTestCase {
+    @MainActor func testResourceMetricsAreOptInAndKeepShortcutsStable() throws {
+        let app = XCUIApplication()
+        app.launchFixture(scenario: "resource-metrics", useAccessToken: true)
+        selectTab("Agents", in: app)
+        let resources = app.buttons["agentResources_atlas"]
+        let terminal = app.buttons["agentTool_atlas_terminal"]
+        let desktop = app.buttons["agentTool_atlas_desktop"]
+        XCTAssertTrue(resources.waitForExistence(timeout: 10))
+        XCTAssertTrue(terminal.exists)
+        let terminalFrame = terminal.frame
+        let desktopFrame = desktop.frame
+        XCTAssertEqual(resources.value as? String, "Collapsed")
+        XCTAssertEqual(try app.fixtureRequestCount("/ui-api/bots/atlas/container/metrics"), 0)
+        XCTAssertFalse(app.otherElements["agentResource_atlas_CPU"].exists)
+        capture(app, "Resources collapsed")
+        resources.tap()
+        let cpu = app.otherElements["agentResource_atlas_CPU"]
+        XCTAssertTrue(cpu.waitForExistence(timeout: 10))
+        let loaded = XCTNSPredicateExpectation(predicate: NSPredicate(format: "value CONTAINS %@", "0.5"), object: cpu)
+        XCTAssertEqual(XCTWaiter.wait(for: [loaded], timeout: 10), .completed)
+        XCTAssertTrue(app.otherElements["agentResource_atlas_RAM"].exists)
+        XCTAssertTrue(app.otherElements["agentResource_atlas_Storage"].exists)
+        XCTAssertEqual(try app.fixtureRequestCount("/ui-api/bots/atlas/container/metrics"), 1)
+        capture(app, "Resources expanded")
+        app.buttons["closeAgentResources_atlas"].tap()
+        XCTAssertEqual(resources.value as? String, "Collapsed")
+        XCTAssertEqual(terminal.frame, terminalFrame)
+        XCTAssertEqual(desktop.frame, desktopFrame)
+        XCTAssertTrue(terminal.isHittable)
+        XCTAssertTrue(desktop.isHittable)
+        terminal.tap()
+        XCTAssertTrue(app.buttons["terminalDisconnect"].waitForExistence(timeout: 10) || app.staticTexts["Terminal"].firstMatch.exists)
+    }
     @MainActor func testReleaseScreenshotGallery() throws {
         XCUIDevice.shared.orientation = .portrait
         let app = XCUIApplication()

@@ -1,0 +1,48 @@
+{
+  "app": "Homem",
+  "appID": "6812852139",
+  "version": "1.2",
+  "build": "120",
+  "date": "2026-10-26",
+  "timezone": "Asia/Singapore",
+  "distribution": "TESTFLIGHT_INTERNAL",
+  "status": "UPLOADING_AND_VALIDATING",
+  "appStoreSubmission": false,
+  "testGroup": {
+    "id": "926f0163-0a4e-41e4-b3b6-2eb289f969c3",
+    "name": "Homem Internal"
+  },
+  "changes": [
+    "Resource usage is collapsed by default in agent cards and workspace headers.",
+    "A fixed-size chart button opens CPU, memory, and disk usage in a native popover.",
+    "Metrics fetches and the 30-second refresh loop run only while the popover is visible.",
+    "Tool shortcut positions no longer depend on metric availability or the width of loaded values."
+  ],
+  "validation": {
+    "iPhoneUI": "PASSED",
+    "iPadUI": "PASSED",
+    "visionOSUI": "PASSED",
+    "localizationStrings": 741,
+    "archiveVersionsVerified": [
+      "IOS 1.2 (120)",
+      "VISION_OS 1.2 (120)",
+      "MAC_OS 1.2 (120)"
+    ],
+    "uiAssertions": [
+      "No metrics request before the user opens details",
+      "Loaded CPU, memory, and storage values are accessible",
+      "Terminal and Desktop retain their original frames after details close",
+      "Terminal remains tappable and opens normally"
+    ],
+    "resultBundles": {
+      "iPhone": "build/Logs/Test/Test-Homem-2026.10.26_17-04-55-+0800.xcresult",
+      "iPad": "build/Logs/Test/Test-Homem-2026.10.26_17-06-46-+0800.xcresult",
+      "visionOS": "build-vision-ui/Logs/Test/Test-HomemVision-2026.10.26_17-10-10-+0800.xcresult"
+    }
+  },
+  "qaImages": "../ui/2026-10-26-resources/",
+  "distributionNotes": [
+    "Published to the existing internal group only; no external beta review or App Store version/review submission is created.",
+    "Native macOS receives the 1.2 maintenance version; the resource control change applies to the shared iOS, iPadOS and visionOS UI."
+  ]
+}

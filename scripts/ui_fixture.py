@@ -27,6 +27,11 @@ def reset(scenario=""):
             DOCUMENTS[base+'/workspace-targets'] = {'targets':[{'target_id':'native','kind':'native','primary':True},{'target_id':'fixture-mac','kind':'remote','name':'Studio Mac','online':True,'status':'online'}]}
             DOCUMENTS[base+'/settings'] = {'language':'en'}
             DOCUMENTS[base+'/container'] = {'status':'running','runtime':'docker','id':'workspace-'+b}
+            if scenario == 'resource-metrics':
+                DOCUMENTS[base+'/container/metrics'] = {
+                    'metrics': {'cpu': {'usage_nanocores': 500_000_000}, 'memory': {'usage_bytes': 268_435_456, 'limit_bytes': 1_073_741_824}, 'storage': {'used_bytes': 536_870_912}},
+                    'resource_limits': {'applied': {'cpu_millicores': 2000, 'memory_bytes': 1_073_741_824, 'storage_bytes': 10_737_418_240}},
+                }
             DOCUMENTS[base+'/token-usage'] = {'chat':[],'discuss':[],'schedule':[],'acp_agent':[]}
             DOCUMENTS[base+'/checks'] = {'state':'ok','issues':[]}
         COLLECTIONS['/bots/atlas/sessions'] = [dict(id=i,bot_id='atlas',title=t,type='chat',updated_at='2026-09-16T14:00:00Z') for i,t in [('welcome','A place for your next idea'),('research','A weekend in Kyoto')]]

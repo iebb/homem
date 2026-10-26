@@ -60,6 +60,7 @@ struct AgentCard: View {
     let height: CGFloat
     var body: some View {
         VStack(spacing: 0) {
+            ZStack(alignment: .topTrailing) {
             NavigationLink { AgentDetailView(bot: bot) } label: {
                 VStack(alignment: .leading, spacing: 0) {
                     HStack(alignment: .top, spacing: 14) {
@@ -69,7 +70,7 @@ struct AgentCard: View {
                             StatusIndicator(text: bot.value["is_active"].bool ? "Active" : "Paused", color: bot.value["is_active"].bool ? .green : .secondary)
                         }.frame(minHeight: 52, alignment: .leading)
                         Spacer(minLength: 4)
-                        AgentResourceSummary(botID: bot.id)
+                        Color.clear.frame(width: Theme.controlSize, height: Theme.controlSize)
                     }
                     if let description = bot.value["metadata"]["description"].string.nonEmpty {
                         Text(description).font(.subheadline).foregroundStyle(.secondary).lineLimit(2).padding(.top, 12)
@@ -84,6 +85,9 @@ struct AgentCard: View {
                     #endif
                     .contentShape(Rectangle())
             }.buttonStyle(.plain).accessibilityIdentifier("agentDetails_" + bot.id)
+                AgentResourceSummary(botID: bot.id)
+                    .padding(.top, Theme.gutter).padding(.trailing, Theme.gutter)
+            }
             Divider().padding(.horizontal, Theme.gutter)
             HStack(spacing: 4) {
                 ForEach([WorkspaceTool.files, .terminal, .desktop]) { tool in
@@ -305,6 +309,7 @@ struct AgentResourceSummary: View {
     @Environment(AppStore.self) private var store
     @Environment(\.scenePhase) private var scenePhase
     let botID: String
+    @State private var expanded = false
     @State private var snapshot: JSONValue = .null
     private var metrics: JSONValue { snapshot["metrics"] }
     private var limits: JSONValue {
@@ -327,24 +332,30 @@ struct AgentResourceSummary: View {
         return actual.isNull ? limits["memory_bytes"] : actual
     }
     var body: some View {
+        Button { expanded = true } label: {
+            Image(systemName: "chart.bar")
+                .font(.body).frame(width: Theme.controlSize, height: Theme.controlSize).contentShape(Rectangle())
+        }.buttonStyle(.plain).spatialHoverEffect()
+            .accessibilityLabel("Resource metrics".localized)
+            .accessibilityValue((expanded ? "Expanded" : "Collapsed").localized)
+            .accessibilityIdentifier("agentResources_" + botID)
+            .popover(isPresented: $expanded) {
+                details.presentationCompactAdaptation(.popover)
+            }
+    }
+    private var details: some View {
         VStack(alignment: .trailing, spacing: 5) {
-            #if os(visionOS) || targetEnvironment(macCatalyst)
-            if cpuUsed != "—" || cpuLimit != "—" {
-                resource("CPU", symbol: "cpu", used: cpuUsed, limit: cpuLimit)
-            }
-            if !metrics["memory"]["usage_bytes"].isNull || !memoryLimit.isNull {
-                resource("RAM", symbol: "memorychip", used: bytes(metrics["memory"]["usage_bytes"]), limit: bytes(memoryLimit, limit: true))
-            }
-            if !metrics["storage"]["used_bytes"].isNull || !limits["storage_bytes"].isNull {
-                resource("Storage", symbol: "internaldrive", used: bytes(metrics["storage"]["used_bytes"]), limit: bytes(limits["storage_bytes"], limit: true))
-            }
-            #else
+            HStack {
+                Text("Resource metrics".localized).font(.headline).foregroundStyle(.primary)
+                Spacer()
+                Button("Done".localized) { expanded = false }
+                    .accessibilityIdentifier("closeAgentResources_" + botID)
+            }.padding(.bottom, 10)
             resource("CPU", symbol: "cpu", used: cpuUsed, limit: cpuLimit)
             resource("RAM", symbol: "memorychip", used: bytes(metrics["memory"]["usage_bytes"]), limit: bytes(memoryLimit, limit: true))
             resource("Storage", symbol: "internaldrive", used: bytes(metrics["storage"]["used_bytes"]), limit: bytes(limits["storage_bytes"], limit: true))
-            #endif
-        }.font(.caption2.monospacedDigit()).foregroundStyle(.secondary).fixedSize()
-            .accessibilityIdentifier("agentResources_" + botID)
+        }.font(.caption.monospacedDigit()).foregroundStyle(.secondary)
+            .frame(width: 270).padding(18)
             .task(id: scenePhase) {
                 guard scenePhase == .active, let api = store.api else { return }
                 repeat {
@@ -358,12 +369,15 @@ struct AgentResourceSummary: View {
     private func resource(_ name: String, symbol: String, used: String, limit: String) -> some View {
         HStack(spacing: 5) {
             Image(systemName: symbol).frame(width: 12)
+            Text(name.localized)
+            Spacer(minLength: 12)
             if used == "—" {
                 Text(name == "CPU" && limit != "—" && limit != "∞" ? AppLocalization.format("%@ cores", limit) : limit)
             } else {
                 Text(used).foregroundStyle(.primary) + Text(" / " + limit)
             }
         }.accessibilityElement(children: .ignore)
+            .accessibilityIdentifier("agentResource_" + botID + "_" + name)
             .accessibilityLabel(name.localized)
             .accessibilityValue(used == "—" ? AppLocalization.format("Limit: %@", limit) : AppLocalization.format("%@ used · %@ limit", used, limit))
     }

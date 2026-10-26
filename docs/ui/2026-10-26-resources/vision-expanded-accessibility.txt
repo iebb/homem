@@ -1,0 +1,31 @@
+Attributes: Application, 0x10620c780, pid: 75783, label: 'Homem'
+Element subtree:
+ →Application, 0x10620c780, pid: 75783, label: 'Homem'
+    Other, 0x10620c8c0, {{0.0, 0.0}, {900.0, 720.0}}, identifier: 'ad.neko.homem:SFBSystemService-4C26DF0A-284F-4D1B-9BE7-208232E8C399'
+      Window (Main), 0x10620cb40, {{0.0, 0.0}, {306.0, 148.5}}
+        Other, 0x10620ca00, {{0.0, 0.0}, {306.0, 148.5}}
+          Other, 0x10620cc80, {{0.0, 0.0}, {306.0, 148.5}}
+            Other, 0x10620cf00, {{0.0, 0.0}, {306.0, 148.5}}
+              Other, 0x10620d2c0, {{0.0, 0.0}, {306.0, 148.5}}
+                Button, 0x10620df40, {{225.5, 18.0}, {62.5, 44.0}}, identifier: 'closeAgentResources_atlas', label: 'Done'
+                StaticText, 0x10620e080, {{18.0, 29.8}, {142.5, 20.5}}, label: 'Resource metrics'
+                Other, 0x10620dcc0, {{18.0, 77.0}, {270.0, 14.5}}, identifier: 'agentResource_atlas_CPU', label: 'CPU', value: 0.5 used · 2 limit
+                  Image, 0x10620e300, {{18.0, 78.5}, {12.0, 12.0}}, identifier: 'cpu', label: 'Cpu Chip'
+                  StaticText, 0x10620e440, {{35.0, 77.0}, {25.5, 14.5}}, label: 'CPU'
+                  StaticText, 0x10620e6c0, {{250.5, 77.0}, {37.5, 14.5}}, label: '0.5 / 2'
+                Other, 0x10620e580, {{17.5, 96.5}, {270.5, 14.5}}, identifier: 'agentResource_atlas_RAM', label: 'RAM', value: 256 MB used · 1 GB...
+                  Image, 0x10620e800, {{17.5, 98.5}, {13.0, 10.5}}, identifier: 'memorychip', label: 'Memory Chip'
+                  StaticText, 0x10620ea80, {{35.0, 96.5}, {27.0, 14.5}}, label: 'RAM'
+                  StaticText, 0x10620ebc0, {{204.0, 96.5}, {84.0, 14.5}}, label: '256 MB / 1 GB'
+                Other, 0x10620e940, {{17.0, 116.0}, {271.0, 14.5}}, identifier: 'agentResource_atlas_Storage', label: 'Storage', value: 512 MB used · 10 G...
+                  Image, 0x10620ee40, {{17.0, 118.0}, {14.5, 10.5}}, identifier: 'internaldrive', label: 'Internal Hard Drive'
+                  StaticText, 0x10620f0c0, {{35.0, 116.0}, {46.0, 14.5}}, label: 'Storage'
+                  StaticText, 0x10620ef80, {{196.5, 116.0}, {91.5, 14.5}}, label: '512 MB / 10 GB'
+      Other, 0x10620f200, {{0.0, 0.0}, {50.0, 50.0}}
+Path to element:
+ →Application, 0x10620c780, pid: 75783, label: 'Homem'
+Query chain:
+ →Find: Target Application 'ad.neko.homem'
+  Output: {
+    Application, 0x10620f480, pid: 75783, label: 'Homem'
+  }

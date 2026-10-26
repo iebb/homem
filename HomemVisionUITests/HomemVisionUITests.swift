@@ -1,6 +1,34 @@
 import XCTest
 
 final class HomemVisionUITests: XCTestCase {
+    @MainActor func testResourceMetricsStayCollapsedUntilRequested() throws {
+        let app = XCUIApplication()
+        app.launchFixture(scenario: "resource-metrics", useAccessToken: true)
+        XCTAssertTrue(app.buttons["Agents"].firstMatch.waitForExistence(timeout: 20))
+        app.buttons["Agents"].firstMatch.tap()
+        let resources = app.buttons["agentResources_atlas"]
+        let terminal = app.buttons["agentTool_atlas_terminal"]
+        let desktop = app.buttons["agentTool_atlas_desktop"]
+        XCTAssertTrue(resources.waitForExistence(timeout: 10))
+        XCTAssertEqual(resources.value as? String, "Collapsed")
+        XCTAssertEqual(try app.fixtureRequestCount("/ui-api/bots/atlas/container/metrics"), 0)
+        let terminalFrame = terminal.frame
+        let desktopFrame = desktop.frame
+        resources.tap()
+        let cpu = app.otherElements["agentResource_atlas_CPU"]
+        XCTAssertTrue(cpu.waitForExistence(timeout: 10))
+        let loaded = XCTNSPredicateExpectation(predicate: NSPredicate(format: "value CONTAINS %@", "0.5"), object: cpu)
+        XCTAssertEqual(XCTWaiter.wait(for: [loaded], timeout: 10), .completed)
+        XCTAssertEqual(try app.fixtureRequestCount("/ui-api/bots/atlas/container/metrics"), 1)
+        capture(app, "Resource metrics opened on demand")
+        app.buttons["closeAgentResources_atlas"].tap()
+        XCTAssertEqual(resources.value as? String, "Collapsed")
+        XCTAssertEqual(terminal.frame.minY, terminalFrame.minY, accuracy: 1)
+        XCTAssertEqual(desktop.frame.minY, desktopFrame.minY, accuracy: 1)
+        XCTAssertTrue(terminal.isHittable)
+        XCTAssertTrue(desktop.isHittable)
+        capture(app, "Stable workspace shortcuts with resource metrics collapsed")
+    }
     @MainActor func testAccountSwitchKeepsExistingChatAndFilesConnected() throws {
         let app = XCUIApplication()
         app.launchFixture()
